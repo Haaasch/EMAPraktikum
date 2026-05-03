@@ -1,5 +1,5 @@
 Plecs {
-  Name          "V1_Transformator_Kurzschluss"
+  Name          "V1_Transformator_Einschaltstrom"
   Version       "5.0"
   CircuitModel  "ContStateSpace"
   StartTime     "0.0"
