@@ -3,7 +3,7 @@ Plecs {
   Version       "5.0"
   CircuitModel  "ContStateSpace"
   StartTime     "0.0"
-  TimeSpan      "1"
+  TimeSpan      "0.2"
   Timeout       ""
   Solver        "auto"
   MaxStep       "1e-5"
@@ -71,7 +71,7 @@ Plecs {
   InvalidNetlistFunctionEvaluationMsg "1"
   IncompatibleInitialConditionMsg "2"
   Schematic {
-    Location      [280, 186; 1490, 785]
+    Location      [350, 249; 1560, 848]
     ZoomFactor    1.49863
     SliderPosition [0, 0]
     ShowBrowser   off
@@ -86,7 +86,7 @@ Plecs {
       LabelPosition east
       Parameter {
         Variable      "V"
-        Value         "230*0.062*10"
+        Value         "325"
         Show          off
       }
       Parameter {
@@ -96,7 +96,7 @@ Plecs {
       }
       Parameter {
         Variable      "phi"
-        Value         "0"
+        Value         "pi/6*3"
         Show          off
       }
     }
@@ -184,11 +184,11 @@ Plecs {
       Flipped       off
       LabelPosition south
       Frame         [-15, -15; 15, 15]
-      Location      [29, 182; 880, 856]
+      Location      [874, 84; 1725, 929]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAAFgA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGIA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABiAP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABEAP///wAAA1MAAAKDAAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABEAP///wAAA1MAAAMuAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
@@ -293,11 +293,11 @@ Plecs {
       Flipped       off
       LabelPosition south
       Frame         [-15, -15; 15, 15]
-      Location      [792, 187; 1536, 622]
+      Location      [792, 187; 1536, 631]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAADAA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGIA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABiAP///wAAAAMAAALoAAAAUfw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAAugAAABEAP///wAAAugAAAE9AAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAAugAAABEAP///wAAAugAAAFGAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
@@ -340,42 +340,6 @@ Plecs {
           KeepBaseline  off
           BaselineValue 0
         }
-      }
-    }
-    Component {
-      Type          Reference
-      SrcComponent  "Components/Control/Filters/RMS Value"
-      Name          "RMS Value"
-      Show          on
-      Position      [150, 95]
-      Direction     up
-      Flipped       off
-      LabelPosition south
-      Frame         [-15, -15; 15, 15]
-      Parameter {
-        Variable      "x0"
-        Value         "0"
-        Show          off
-      }
-      Parameter {
-        Variable      "ts"
-        Value         "0"
-        Show          off
-      }
-      Parameter {
-        Variable      "fs"
-        Value         "10"
-        Show          off
-      }
-      Terminal {
-        Type          Input
-        Position      [-15, 0]
-        Direction     left
-      }
-      Terminal {
-        Type          Output
-        Position      [19, 0]
-        Direction     right
       }
     }
     Component {
@@ -424,11 +388,55 @@ Plecs {
       LabelPosition west
     }
     Component {
+      Type          ToFile
+      Name          "To File"
+      Show          off
+      Position      [190, 270]
+      Direction     right
+      Flipped       off
+      LabelPosition north
+      Parameter {
+        Variable      "Filename"
+        Value         "V1_Einschaltstrom_90degree"
+        Show          off
+        Evaluate      off
+      }
+      Parameter {
+        Variable      "FileType"
+        Value         "2"
+        Show          off
+      }
+      Parameter {
+        Variable      "WriteSignalNames"
+        Value         "2"
+        Show          off
+      }
+      Parameter {
+        Variable      "SampleTime"
+        Value         "1e-3"
+        Show          off
+      }
+    }
+    Component {
+      Type          PlecsProbe
+      Name          "Probe2"
+      Show          on
+      Position      [125, 270]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Probe {
+        Component     "V_ac"
+        Path          ""
+        Signals       {"Source current"}
+      }
+    }
+    Component {
       Type          Reference
       SrcComponent  "Components/Control/Filters/RMS Value"
-      Name          "2"
+      Name          "RMS Value"
       Show          on
-      Position      [150, 45]
+      Position      [150, 80]
       Direction     up
       Flipped       off
       LabelPosition south
@@ -457,115 +465,6 @@ Plecs {
         Type          Output
         Position      [19, 0]
         Direction     right
-      }
-    }
-    Component {
-      Type          PlecsProbe
-      Name          "Probe2"
-      Show          on
-      Position      [55, 275]
-      Direction     right
-      Flipped       off
-      LabelPosition south
-      Probe {
-        Component     "V_ac"
-        Path          ""
-        Signals       {"Source current", "Source voltage"}
-      }
-    }
-    Component {
-      Type          Scope
-      Name          "U_I_P1"
-      Show          on
-      Position      [200, 275]
-      Direction     up
-      Flipped       off
-      LabelPosition south
-      Frame         [-15, -15; 15, 15]
-      Location      [29, 182; 867, 864]
-      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQAAAAAA/////wAAAFgA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAGIA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABiAP///wAAAAMAAANGAAAAYPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAA0YAAABEAP///wAAA0YAAAIlAAAA"
-"BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
-"AAAAA=="
-      SavedViews    "AAAAAgAAAAA="
-      HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":163,\"Labels\":[\""
-"Delta\",\"Max\"],\"VisualIdxs\":[3,6]}"
-      PlotPalettes  "AAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
-      Axes          "2"
-      TimeRange     "0"
-      ScrollingMode "1"
-      SingleTimeAxis "1"
-      Open          "0"
-      Ts            "-1"
-      SampleLimit   "0"
-      XAxisLabel    "Time / s"
-      ShowLegend    "1"
-      Axis {
-        Name          ""
-        AutoScale     1
-        MinValue      0
-        MaxValue      1
-        Signals       {}
-        SignalTypes   [ ]
-        Untangle      0
-        KeepBaseline  off
-        BaselineValue 0
-      }
-      Axis {
-        Name          ""
-        AutoScale     1
-        MinValue      0
-        MaxValue      1
-        Signals       {}
-        SignalTypes   [ ]
-        Untangle      0
-        KeepBaseline  off
-        BaselineValue 0
-      }
-      Fourier {
-        SingleXAxis       on
-        AxisLabel         "Frequency / Hz"
-        Scaling           0
-        PhaseDisplay      0
-        ShowFourierLegend off
-        Axis {
-          Name          ""
-          AutoScale     1
-          MinValue      0
-          MaxValue      1
-          Signals       {}
-          Untangle      0
-          KeepBaseline  off
-          BaselineValue 0
-        }
-        Axis {
-          Name          ""
-          AutoScale     1
-          MinValue      0
-          MaxValue      1
-          Signals       {}
-          Untangle      0
-          KeepBaseline  off
-          BaselineValue 0
-        }
-      }
-    }
-    Component {
-      Type          SignalDemux
-      Name          "Demux1"
-      Show          off
-      Position      [105, 275]
-      Direction     right
-      Flipped       on
-      LabelPosition south
-      Frame         [-7, -10; 2, 10]
-      Parameter {
-        Variable      "Width"
-        Value         "2"
-        Show          off
       }
     }
     Connection {
@@ -609,21 +508,6 @@ Plecs {
     }
     Connection {
       Type          Signal
-      SrcComponent  "Demux"
-      SrcTerminal   3
-      Points        [115, 80; 115, 95]
-      DstComponent  "RMS Value"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "RMS Value"
-      SrcTerminal   2
-      DstComponent  "U_I_P"
-      DstTerminal   2
-    }
-    Connection {
-      Type          Signal
       SrcComponent  "Probe1"
       SrcTerminal   1
       DstComponent  "RMS Value1"
@@ -638,39 +522,31 @@ Plecs {
     }
     Connection {
       Type          Signal
-      SrcComponent  "Demux"
-      SrcTerminal   2
-      Points        [115, 70; 115, 45]
-      DstComponent  "2"
+      SrcComponent  "Probe2"
+      SrcTerminal   1
+      DstComponent  "To File"
       DstTerminal   1
     }
     Connection {
       Type          Signal
-      SrcComponent  "2"
+      SrcComponent  "Demux"
+      SrcTerminal   3
+      DstComponent  "RMS Value"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "RMS Value"
+      SrcTerminal   2
+      DstComponent  "U_I_P"
+      DstTerminal   2
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Demux"
       SrcTerminal   2
       DstComponent  "U_I_P"
       DstTerminal   1
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Probe2"
-      SrcTerminal   1
-      DstComponent  "Demux1"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Demux1"
-      SrcTerminal   2
-      DstComponent  "U_I_P1"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Demux1"
-      SrcTerminal   3
-      DstComponent  "U_I_P1"
-      DstTerminal   2
     }
     Annotation {
       Name          base64 "PGh0bWw+PGJvZHk+CjxwPlByaW3DpHJzZWl0ZTwvcD48L2JvZH"
@@ -696,22 +572,6 @@ Plecs {
     RectangleAnnotation {
       Position     [355, 80]
       Width        160
-      Height       110
-      CornerRadius 3
-      Thickness    2
-      PenColor     4278190080
-      PenAlpha     1
-      BrushColor   0
-      BrushAlpha   0
-    } 
-    Annotation {
-      Name          base64 "PGh0bWw+PGJvZHk+CjxwPlByaW3DpHJzZWl0ZTwvcD48L2JvZH"
-"k+PC9odG1sPg=="
-      Position      [70, 320]
-    } 
-    RectangleAnnotation {
-      Position     [125, 280]
-      Width        210
       Height       110
       CornerRadius 3
       Thickness    2
