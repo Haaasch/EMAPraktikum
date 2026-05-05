@@ -1,9 +1,9 @@
 Plecs {
-  Name          "V1_Transformator_Einschaltstrom"
+  Name          "V1_Transformator_Kurzschluss"
   Version       "5.0"
   CircuitModel  "ContStateSpace"
   StartTime     "0.0"
-  TimeSpan      "0.2"
+  TimeSpan      "1"
   Timeout       ""
   Solver        "auto"
   MaxStep       "1e-5"
@@ -71,7 +71,7 @@ Plecs {
   InvalidNetlistFunctionEvaluationMsg "1"
   IncompatibleInitialConditionMsg "2"
   Schematic {
-    Location      [350, 249; 1560, 848]
+    Location      [288, 157; 1498, 756]
     ZoomFactor    1.49863
     SliderPosition [0, 0]
     ShowBrowser   off
@@ -86,7 +86,7 @@ Plecs {
       LabelPosition east
       Parameter {
         Variable      "V"
-        Value         "325"
+        Value         "230*0.062*10"
         Show          off
       }
       Parameter {
@@ -96,7 +96,7 @@ Plecs {
       }
       Parameter {
         Variable      "phi"
-        Value         "pi/6*3"
+        Value         "0"
         Show          off
       }
     }
@@ -165,7 +165,7 @@ Plecs {
       Type          PlecsProbe
       Name          "Probe"
       Show          on
-      Position      [55, 75]
+      Position      [230, 270]
       Direction     right
       Flipped       off
       LabelPosition south
@@ -184,11 +184,11 @@ Plecs {
       Flipped       off
       LabelPosition south
       Frame         [-15, -15; 15, 15]
-      Location      [874, 84; 1725, 929]
+      Location      [29, 182; 880, 847]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAAFgA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGIA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABiAP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABEAP///wAAA1MAAAMuAAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABEAP///wAAA1MAAAJ6AAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
@@ -200,7 +200,7 @@ Plecs {
       TimeRange     "0"
       ScrollingMode "1"
       SingleTimeAxis "1"
-      Open          "0"
+      Open          "1"
       Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    "Time / s"
@@ -293,16 +293,16 @@ Plecs {
       Flipped       off
       LabelPosition south
       Frame         [-15, -15; 15, 15]
-      Location      [792, 187; 1536, 631]
+      Location      [626, 242; 1370, 668]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAADAA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAGIA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABiAP///wAAAAMAAALoAAAAUfw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAAugAAABEAP///wAAAugAAAFGAAAA"
+"///wAAAGIA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABiAP///wAAAAMAAALoAAAAYvw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAAugAAABEAP///wAAAugAAAEjAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":124,\"Labels\":[\""
-"Max\"],\"VisualIdxs\":[6]}"
+      HeaderState   "{\"DefaultSecSize\":100,\"FirstSecSize\":124,\"Labels\":["
+"\"Max\"],\"VisualIdxs\":[6]}"
       PlotPalettes  "AAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
       Axes          "1"
       TimeRange     "0"
@@ -391,13 +391,13 @@ Plecs {
       Type          ToFile
       Name          "To File"
       Show          off
-      Position      [190, 270]
+      Position      [295, 270]
       Direction     right
       Flipped       off
       LabelPosition north
       Parameter {
         Variable      "Filename"
-        Value         "V1_Einschaltstrom_90degree"
+        Value         "v1_vorbereitung_1_4"
         Show          off
         Evaluate      off
       }
@@ -413,7 +413,7 @@ Plecs {
       }
       Parameter {
         Variable      "SampleTime"
-        Value         "1e-3"
+        Value         "0"
         Show          off
       }
     }
@@ -421,50 +421,14 @@ Plecs {
       Type          PlecsProbe
       Name          "Probe2"
       Show          on
-      Position      [125, 270]
+      Position      [60, 75]
       Direction     right
       Flipped       off
       LabelPosition south
       Probe {
         Component     "V_ac"
         Path          ""
-        Signals       {"Source current"}
-      }
-    }
-    Component {
-      Type          Reference
-      SrcComponent  "Components/Control/Filters/RMS Value"
-      Name          "RMS Value"
-      Show          on
-      Position      [150, 80]
-      Direction     up
-      Flipped       off
-      LabelPosition south
-      Frame         [-15, -15; 15, 15]
-      Parameter {
-        Variable      "x0"
-        Value         "0"
-        Show          off
-      }
-      Parameter {
-        Variable      "ts"
-        Value         "0"
-        Show          off
-      }
-      Parameter {
-        Variable      "fs"
-        Value         "10"
-        Show          off
-      }
-      Terminal {
-        Type          Input
-        Position      [-15, 0]
-        Direction     left
-      }
-      Terminal {
-        Type          Output
-        Position      [19, 0]
-        Direction     right
+        Signals       {"Source current", "Source voltage"}
       }
     }
     Connection {
@@ -501,13 +465,6 @@ Plecs {
     }
     Connection {
       Type          Signal
-      SrcComponent  "Probe"
-      SrcTerminal   1
-      DstComponent  "Demux"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Signal
       SrcComponent  "Probe1"
       SrcTerminal   1
       DstComponent  "RMS Value1"
@@ -524,29 +481,29 @@ Plecs {
       Type          Signal
       SrcComponent  "Probe2"
       SrcTerminal   1
+      DstComponent  "Demux"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Probe"
+      SrcTerminal   1
       DstComponent  "To File"
       DstTerminal   1
     }
     Connection {
       Type          Signal
       SrcComponent  "Demux"
-      SrcTerminal   3
-      DstComponent  "RMS Value"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "RMS Value"
       SrcTerminal   2
       DstComponent  "U_I_P"
-      DstTerminal   2
+      DstTerminal   1
     }
     Connection {
       Type          Signal
       SrcComponent  "Demux"
-      SrcTerminal   2
+      SrcTerminal   3
       DstComponent  "U_I_P"
-      DstTerminal   1
+      DstTerminal   2
     }
     Annotation {
       Name          base64 "PGh0bWw+PGJvZHk+CjxwPlByaW3DpHJzZWl0ZTwvcD48L2JvZH"
