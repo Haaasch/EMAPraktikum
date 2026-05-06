@@ -109,13 +109,13 @@
 
 
 		\subsection{Simulation der Leerlaufkennlinie}
-			Die Primärspannung wurde von 10\% bis 100\% in 20\% Schritten variiert. 100\% stellt hierbei 400V dar. An der sekundären Seite wurden lediglich ein Ampermeter und ein Voltmeter angeschlossen, um eine Sinnvolle Leerlaufkennlinie zu messen.\\
+			Die Primärspannung wurde von 10\% bis 110\% in 20\% Schritten variiert. 100\% stellt hierbei 230V Effektivspannung auf der Primärseite dar. An der sekundären Seite wurden lediglich ein Ampermeter und ein Voltmeter angeschlossen, um eine Sinnvolle Leerlaufkennlinie zu messen.\\
 			\begin{figure}[H]
 				\centering
 				\includegraphics[width=\textwidth]{images/Vorb-1-2-Leerlauf-Aufbau.png}
 				\caption{Messaufbau der Leerlaufkennliniensimulation in PLECS}
 			\end{figure}
-			Da die Simulationen stets bei 0.0s beginnen und der Transformator auch hier eine Einschwingzeit benötigt, wurde für die gesamten Messdaten der jeweilige Mittelwert berechnet und auch nur dieser eingezeichnet.
+			Da die Simulationen stets bei 0.0s beginnen und der Transformator auch hier eine Einschwingzeit benötigt, wurde für die gesamten Messdaten der jeweilige Mittelwert berechnet und auch nur dieser eingezeichnet. Da die Simulationsdauer (3s) deutlich länger ist als die Einschwingdauer (ca. 0.2s) entspricht der Mittelwert der Messwerte den Werten des stationären Zustands.
 			
 			
 			\subsubsection{Effektivwert des Leerlaufstroms $I_{10}$ über Effektivwert der Primärspannung $U_1$}
