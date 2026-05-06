@@ -11,6 +11,7 @@
 \usepackage{comment}
 \usepackage[printonlyused]{acronym}
 \usepackage{gensymb}
+\usepackage{circuitikz}
 
 %\addbibresource{Vorlage.bib}
 
@@ -80,6 +81,7 @@
 		Wenn nicht explizit genannt, wurde für alle Simulationen eine Messdauer von 0.0s - 10.0s, sowie eine Schrittweite von $1\cdot10^{-3}$s gesetzt.\\
 		Für etwaige Messdaten Auswertungen wurde die kostenfreie MATLAB Alternative "GNU Octave" verwendet.
 		\subsection{Aufbau des Simulationsmodells in PLECS}
+		\label{sec:plecs_modell}
 			\begin{figure}[H]
 				\centering
 				\includegraphics[width=\textwidth]{images/Vorb-1-1.png}
@@ -121,58 +123,129 @@
 			\subsubsection{Effektivwert des Leerlaufstroms $I_{10}$ über Effektivwert der Primärspannung $U_1$}
 				\begin{figure}[H]
 					\centering
-					\includegraphics[width=\textwidth]{images/Vorb-1-2-Leerlauf-I1-U1.png}
+					\includegraphics[width=\textwidth]{images/Vorb-1-2-Leerlauf-Leerlaufstrom.png}
 					\caption{Effektivwert des Leerlaufstroms $I_{1, eff}$ über Effektivwert der Primärspannung $U_{1, eff}$}
 					\label{fig:Vorb-1-2-Leerlauf_I1-U1}
 				\end{figure}
 				
-				In der Abbildung \ref{fig:Vorb-1-2-Leerlauf_I1-U1} ist die Linearität des idealen Transformators klar zu erkennen.\\
-				Der Primärstrom ist abhängig von den Primär- sowie Sekundärseitigen Impedanzen, der Frequenz $f$ und der Spannung $U_{1}$. Da sich der Transformator in unserer Simulation im Leerlauf befindet und die Frequenz konstant bleibt, ist der Strom lediglich abhängig von der Eingangsimpedanz $Z_1$ der Primärseite und der Transformator Reaktanz $Z_h$ mit 
-				$$
-				Z_h = \sqrt{R_{Fe}^2 + X_h^2}
-				$$
-				und 
-				$$
-				R_{Fe} = f(f)
-				$$
-				Etwaige Temperaturschwankungen, welche sich auf den Materialwiderstand $R_{Fe}$ auswirken, sind in Realität ebenfalls zu beachten, hier jedoch ausgeschlossen worden, da für die Simulation $R_{Fe}$ als unendlich angenommen wird. haha lol sebi
+				Zur Validierung der simulierten Messwerte wird zweckmäßigerweise das Ersatzschaltbild (ESB) des einphasigen Transformators in diesem Betriebszustand herangezogen. Im Unterschied zum im Vorlesungsskript dargestellten ESB können die Eisenverluste ($R_{FE})$ in diesem Fall vernachlässigt werden, da der entsprechende Widerstand gemäß der Parameter aus Abschnitt~\ref{sec:plecs_modell} als unendlich groß angenommen wird.
+				
+			\begin{circuitikz}
+				% Spannungsquelle links
+				\draw (0,0) to[sV, l=$U_1$] (0,3)
+				
+				% Serienzweig: R1 und L1σ mit Strompfeil I10
+				to[R, l=$R_1$, i=$I_{10}$] (3,3)
+				to[L, l=$L_{1\sigma}$] (6,3)
+				
+				% L1H mit äußerem Spannungspfeil
+				to[L, l_=$L_{1H}$, v^=$U_{1H}$] (6,0)
 				
 				
+				% Rückleitung
+				-- (0,0);
+			\end{circuitikz}
+			
+			Gegeben sind die Parameter der Schaltung:
+			$R_1 = 1\,\Omega$, $L_{1\sigma} = 0{,}01\,\text{H}$ und $L_{1H} = 1\,\text{H}$ sowie die Frequenz $f = 50\,\text{Hz}$.
+			
+			Die Impedanz ergibt sich zu:
+			
+			\[
+			\underline{Z} = R_1 + j\,2\pi f (L_{1\sigma} + L_{1H})
+			\]
+			
+			Einsetzen der Werte liefert:
+			
+			\[
+			\underline{Z} = 1 + j\,2\pi \cdot 50 \cdot (0{,}01 + 1)
+			\]
+			
+			\[
+			\underline{Z} = 1 + j\,2\pi \cdot 50 \cdot 1{,}01
+			\]
+			
+			\[
+			\underline{Z} \approx 1 \Omega+ j\,317{,}3 \Omega =317,3*e^{j89,82°}\,\Omega
+			\]
+			
+			Die Admittanz ergibt sich als Kehrwert der Impedanz:
+			
+			\[
+			\underline{Y} = \frac{1}{Z} = \frac{1}{317,3*e^{j89,82°}}=3,15 mS *e^{-j89,82°}
+			\]
+			
+			Da im Diagramm der Strom über der Spannung aufgetragen wurde, entspricht die Steigung der Geraden dem Betrag der Admittanz.
+			
+			Der letzte Messpunkt hat näherungsweise die Koordinaten $U_2 = 253\,\text{V}$ und $I_2 = 0{,}8\,\text{A}$, der erste Punkt $U_1 = 23\,\text{V}$ und $I_1 = 0{,}00696\,\text{A}$.
+			
+			Die Steigung ergibt sich zu:
+			
+			\[
+			m = \frac{\Delta I}{\Delta U}
+			= \frac{I_2 - I_1}{U_2 - U_1}
+			\]
+			
+			Einsetzen der Werte:
+			
+			\[
+			m = \frac{0{,}8 - 0{,}00696}{253 - 23}
+			\]
+			
+			\[
+			m = \frac{0{,}79304}{230}
+			\]
+			
+			\[
+			m \approx 3{,}18 \cdot 10^{-3}\,\text{S}
+			\]
+			
+			Vergleicht man den berechneten Wert mit dem aus der Simulation ermittelten Wert, so zeigt sich eine gute Übereinstimmung. Daraus lässt sich schließen, dass die Simulationsergebnisse plausibel sind und das zugrunde liegende Modell korrekt abgebildet wurde.
+			
+			
 			\subsubsection{Effektivwert der Sekundärspannung $U_2$ über Effektivwert der Primärspannung $U_1$}
 				\begin{figure}[H]
 					\centering
-					\includegraphics[width=\textwidth]{images/Vorb-1-2-Leerlauf-U2-U1.png}
-					\caption{Effektivwert der Sekundärspannung $U_{2, eff}$ über Effektivwert der Primärspannung $U_{1, eff}$}
+					\includegraphics[width=\textwidth]{images/Vorb-1-2-Leerlauf-Sekundärspannung.png}
+					\caption{Effektivwert der Sekundärspannung $U_{2}$ über Effektivwert der Primärspannung $U_{1}$}
 				\end{figure}
 				Die Sekundärspannung wird vorrangig durch den Windungsfaktor $"u$ mit 
 				$$
-				"u = \frac{N_1}{N_2}
+				"u = \frac{N_1}{N_2} = 10
 				$$
 				festgelegt. \\
-				Die Leitungs- und Materialwiderstände ($R_1$, $R_{Fe}$) sind üblicherweise so gering, dass sie keine relevanten Auswirkungen auf die Spannung haben.\\
+				
+				Es folgt somit, dass $U_2$ idealerweise stets ein Zehntel der Primärspannung betragen sollte.
+				
+				Bei der Betrachtung des Graphen zeigt sich, dass die Simulation dieses theoretisch erwartete Verhalten sehr gut bestätigt und das entsprechende Verhältnis zwischen Primär- und Sekundärspannung korrekt abbildet.
 			
 			
-			\subsubsection{Leistungsfaktor $cos \varphi$ im Leerlauf über Effektivwert der Primärspannung $U_1$}	
-				Der Winkel zwischen Phasenspannung und Phasenstrom auf Primärseite kann berechnet werden durch:
-				$$
-				\varphi = 360 \cdot f \cdot \Delta t
-				$$
-				Dabei stellt $\Delta t$ die Zeitdifferenz der Phasenspannung und Phasenstrom im Nullpunkt dar.
+			\subsubsection{Leistungsfaktor $cos(\varphi)$ im Leerlauf über Effektivwert der Primärspannung $U_1$}	
+			
 				\begin{figure}[H]
 					\centering
-					\includegraphics[width=\textwidth]{images/Vorb-1-1-Zeitdiff.png}
-					\caption{Messung der Zeitdifferenz zwischen Phasenspannung und Phasenstrom}
+					\includegraphics[width=0.7\linewidth]{images/Vorb-1-2-Leerlauf-cosphi}
+					\caption{Leistungsfaktor $cos(\varphi)$ über Leerlaufspannung}
+					\label{fig:vorb-1-2-leerlauf-cosphi}
 				\end{figure}
-				Bei näherer Betrachtung ergibt $\Delta t$ einen Wert von 0.005s.\\
-				Daraus folgt:
-				$$
-				\varphi_{UI} = 360 \cdot 50Hz \cdot 0.005s = 90\degree
-				$$
-				und
-				$$
-				cos \varphi_{UI} = 0
-				$$
-				also wie zu erwarten, ein rein induktiver Verlauf.
+				
+			Zur Validierung kann man die Berechnung von $S$ über die folgende Formel heranziehen:
+			
+			\[
+			\underline{S} = \underline{U}^2 \cdot \underline{Y^*}
+			\]
+			
+			Nimmt man für die Spannung $\underline{U}$ einen Phasenwinkel von $0^\circ$ an, so ergibt sich der negative Phasenwinkel der Admittanz direkt als Winkel der Scheinleistung bzw. als Winkel des Leistungsfaktors.
+			
+			Aus den vorherigen Betrachtungen folgt für die Admittanz näherungsweise ein Winkel von etwa $-90^\circ$. Dies entspricht einem Leistungsfaktor von
+			
+			\[
+			\cos(\varphi) \approx 0
+			\]
+			
+			Da sich die Admittanz bei Änderungen der Spannungsamplitude nicht verändert, bleibt auch der Leistungsfaktor $\cos(\varphi)$ für alle Messpunkte konstant. Die Simulationswerte sind daher plausibel.
+				
+			
 				
 				
 		\subsection{Simulation des Kurzschlusses}
@@ -235,28 +308,14 @@
 				Damit sich cos phi ändert, muss ich ja Impedanz ändern. Nicht Spannung oder Strom. Also bleibt cos phi auch bei allen Stufen gleich
 			
 		\subsection{Simulation des Einschaltstroms (Eng.: inrush current)}
-			\begin{figure}[H]
-				\centering
-				\includegraphics[width=\textwidth]{images/Vorb-1-4.png}
-				\caption{Simulation des Einschaltstroms (Eng.: inrush current)}
-			\end{figure}
-		
-			\begin{figure}[H]
-				\centering
-				\includegraphics[width=\textwidth]{images/Vorb-1-4_i-t.png}
-				\caption{Simulation des Einschaltstroms (Eng.: inrush current)}
-			\end{figure}
 			
-			\begin{figure}[H]
-				\centering
-				\includegraphics[width=\textwidth]{images/Vorb-1-4_i-t-zoom.png}
-				\caption{Simulation des Einschaltstroms (Eng.: inrush current)}
-			\end{figure}
-			
-			TBC TBC TBC \\ \\
-			Für Ueff wurde 40V (also 40V * sqrt(2)) gewählt. Außerdem befinden wir uns wieder im Leerlauf.
-			
-			FALSCH! Habe Degree anstelle von RAD angegeben! 
+		\begin{figure}
+			\centering
+			\includegraphics[width=1\linewidth]{images/Vorb-1-4-einschaltstrom}
+			\caption{Einschaltstrom I1 bei verschiedenen Phasenlagen von U}
+			\label{fig:vorb-1-4-einschaltstrom}
+		\end{figure}
+		 
 
 			
 	\section{Versuchsdurchführung}
