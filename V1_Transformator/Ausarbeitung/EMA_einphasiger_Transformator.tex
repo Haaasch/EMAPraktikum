@@ -11,9 +11,17 @@
 \usepackage{comment}
 \usepackage[printonlyused]{acronym}
 \usepackage{gensymb}
+\usepackage{circuitikz}
+\usepackage{newfloat}
 
 %\addbibresource{Vorlage.bib}
-
+\DeclareFloatingEnvironment[
+	placement=H,
+	fileext=lofm,
+	listname=Formelverzeichnis,
+	name=Formel
+]{formel}
+\DeclareFloatingEnvironment[name=Schaltbild]{circuit}
 \addto\captionsngerman{%
 	\renewcommand{\abstractname}{Abstract}
 }
@@ -69,202 +77,388 @@
 	\pagenumbering{roman}
 	\tableofcontents % Nur hinzufügen wenn erwünscht!
 	\listoffigures
-	\newpage
+	\listoftables
+	\listofformels
+	\newpage	
 	\section*{Abkürzungsverzeichnis}
-	Test
+		Test
 	
 	\newpage
 	\pagenumbering{arabic}
 	
 	\section{Versuchsvorbereitung}
-	Wenn nicht explizit genannt, wurde für alle Simulationen eine Messdauer von 0.0s - 10.0s, sowie eine Schrittweite von $1\cdot10^{-3}$s gesetzt.\\
-	Für etwaige Messdaten Auswertungen wurde die kostenfreie MATLAB Alternative "GNU Octave" verwendet.
-	\subsection{Aufbau des Simulationsmodells in PLECS}
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=\textwidth]{images/Vorb-1-1.png}
-		\caption{Angepasster Aufbau des PLECS-Modells}
-	\end{figure}
-	
-	Die Parameter des Modells sind der Anleitung des Versuchs entnommen:
-	\begin{align*}
-		U_{1, eff} &= 400V \\
-		I_{2, eff} &= 20A \\
-		R_1 &= 1 \Omega \\
-		R_2 &= 1 \Omega \\
-		L_h &= 1 H \\
-		L_{1\sigma} &= 10 mH \\
-		L_{2\sigma} &= 1 mH \\
-		\frac{N_1}{N_2} &= 10 \\
-		R_{Fe} &\rightarrow \infty
-	\end{align*}
-	
-	Dabei ergaben sich folgende Simulationsergebnisse:
-	\begin{itemize}
-		\item Effektivwert der Primärspannung: 0.7V
-		\item Effektivwert der Sekundärspannung: 0.7V
-		\item Effektivwert des Primärstroms: 0A
-		\item Effektivwert des Sekundärstroms: 0A
-	\end{itemize}
-	
-	
-	\subsection{Simulation der Leerlaufkennlinie}
-	Die Primärspannung wurde von 10\% bis 100\% in 20\% Schritten variiert. 100\% stellt hierbei 400V dar. An der sekundären Seite wurden lediglich ein Ampermeter und ein Voltmeter angeschlossen, um eine Sinnvolle Leerlaufkennlinie zu messen.\\
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=\textwidth]{images/Vorb-1-2-Leerlauf-Aufbau.png}
-		\caption{Messaufbau der Leerlaufkennliniensimulation in PLECS}
-	\end{figure}
-	Da die Simulationen stets bei 0.0s beginnen und der Transformator auch hier eine Einschwingzeit benötigt, wurde für die gesamten Messdaten der jeweilige Mittelwert berechnet und auch nur dieser eingezeichnet.
-	
-	
-	\subsubsection{Effektivwert des Leerlaufstroms $I_{10}$ über Effektivwert der Primärspannung $U_1$}
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=\textwidth]{images/Vorb-1-2-Leerlauf-I1-U1.png}
-		\caption{Effektivwert des Leerlaufstroms $I_{1, eff}$ über Effektivwert der Primärspannung $U_{1, eff}$}
-		\label{fig:Vorb-1-2-Leerlauf_I1-U1}
-	\end{figure}
-	
-	In der Abbildung \ref{fig:Vorb-1-2-Leerlauf_I1-U1} ist die Linearität des idealen Transformators klar zu erkennen.\\
-	Der Primärstrom ist abhängig von den Primär- sowie Sekundärseitigen Impedanzen, der Frequenz $f$ und der Spannung $U_{1}$. Da sich der Transformator in unserer Simulation im Leerlauf befindet und die Frequenz konstant bleibt, ist der Strom lediglich abhängig von der Eingangsimpedanz $Z_1$ und der Transformator Reaktanz $Z_h$ mit 
-	$$
-	|Z_h| = \sqrt{R_{Fe}^2 + |X_h|^2}
-	$$
-	und 
-	$$
-	R_{Fe} = f(f)
-	$$
-	Etwaige Temperaturschwankungen, welche sich auf den Materialwiderstand $R_{Fe}$ auswirken, sind in Realität ebenfalls zu beachten, hier jedoch ausgeschlossen worden.
-	
-	
-	\subsubsection{Effektivwert der Sekundärspannung $U_2$ über Effektivwert der Primärspannung $U_1$}
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=\textwidth]{images/Vorb-1-2-Leerlauf-U2-U1.png}
-		\caption{Effektivwert der Sekundärspannung $U_{2, eff}$ über Effektivwert der Primärspannung $U_{1, eff}$}
-	\end{figure}
-	Die Sekundärspannung wird vorrangig durch den Windungsfaktor $"u$ mit 
-	$$
-	"u = \frac{N_1}{N_2}
-	$$
-	festgelegt. \\
-	Die Leitungs- und Materialwiderstände ($R_1$, $R_{Fe}$) sind üblicherweise so gering, dass sie keine relevanten Auswirkungen auf die Spannung haben.\\
-	
-	
-	\subsubsection{Leistungsfaktor $cos \varphi$ im Leerlauf über Effektivwert der Primärspannung $U_1$}	
-	Der Winkel zwischen Phasenspannung und Phasenstrom auf Primärseite kann berechnet werden durch:
-	$$
-	\varphi = 360 \cdot f \cdot \Delta t
-	$$
-	Dabei stellt $\Delta t$ die Zeitdifferenz der Phasenspannung und Phasenstrom im Nullpunkt dar.
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=\textwidth]{images/Vorb-1-1-Zeitdiff.png}
-		\caption{Messung der Zeitdifferenz zwischen Phasenspannung und Phasenstrom}
-	\end{figure}
-	Bei näherer Betrachtung ergibt $\Delta t$ einen Wert von 0.005s.\\
-	Daraus folgt:
-	$$
-	\varphi_{UI} = 360 \cdot 50Hz \cdot 0.005s = 90\degree
-	$$
-	und
-	$$
-	cos \varphi_{UI} = 0
-	$$
-	also wie zu erwarten, ein rein induktiver Verlauf.
+		Wenn nicht explizit genannt, wurde für alle Simulationen eine Messdauer von 0.0s - 10.0s, sowie eine Schrittweite von $1\cdot10^{-3}$s gesetzt.\\
+		Für etwaige Messdaten Auswertungen wurde die kostenfreie MATLAB Alternative "GNU Octave" verwendet. \\
+		
+		Ein Strang des einphasigen Transformators lässt sich gemäß Abbildung~\ref{fig:Vorb-ESBTransformator} darstellen.\\
+
+		\begin{circuit}[H]
+			\centering
+			\begin{circuitikz}
+				
+				% obere Leitung
+				\draw
+				(0,0) node[ocirc] {}
+				to[R=$R_1$, i>^=$I_1$] (3,0)
+				to[L=$X_{1\sigma}$] (5,0)
+				-- (6,0)
+				to[L=$X'_{2\sigma}$] (9,0)
+				to[R=$R'_2$, i>^=$I'_2$] (11,0)
+				-- (12,0) node[ocirc] {};
+				
+				% untere Leitung
+				\draw (0,-2) node[ocirc] {} -- (12,-2) node[ocirc] {};
+				
+				% linke Spannung nach unten
+				\draw[->] (0,-0.2) -- (0,-1.8) node[midway, right]{$U_1$};
+				
+				% rechte Spannung nach unten
+				\draw[->] (12,-0.2) -- (12,-1.8) node[midway, left]{$U_2'$};
+				
+				% Parallelzweig: X_h und R_Fe nebeneinander
+				\draw (6,0) -- (6.5,0);
+				\draw (6.5,0)
+				to[L=$X_h$] (6.5,-2);
+				
+				\draw (6,0) -- (5.5,0);
+				\draw (5.2,0)
+				to[R=$R_{Fe}$] (5.2,-2);
+				
+				% Verbindung unten zur Masseleitung
+				\draw (6.5,-2) -- (5.5,-2);
+				
+				% Magnetisierungsstrom
+				\draw[->] (7.5,-0.5) -- (7.5,-1.5) node[midway,right] {$I_\mu$};
+				
+			\end{circuitikz}
+			\caption{Ersatzschaltbild des Stranges eines einphasigen Transformators}
+			\label{fig:Vorb-ESBTransformator}
+		\end{circuit}
+		
+			\subsection{Aufbau des Simulationsmodells in PLECS}
+			\label{sec:plecs_modell}
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=\textwidth]{images/Vorb-1-1.png}
+					\caption{Angepasster Aufbau des PLECS-Modells}
+				\end{figure}
+				
+				Die Parameter des Modells sind der Anleitung des Versuchs entnommen:
+				\begin{align*}
+					U_{1, eff} &= 400V \\
+					I_{2, eff} &= 20A \\
+					R_1 &= 1 \Omega \\
+					R_2 &= 1 \Omega \\
+					L_h &= 1 H \\
+					L_{1\sigma} &= 10 mH \\
+					L_{2\sigma} &= 1 mH \\
+					\frac{N_1}{N_2} &= 10 \\
+					R_{Fe} &\rightarrow \infty
+				\end{align*}
+				
+				Dabei ergaben sich folgende Simulationsergebnisse:
+				\begin{itemize}
+					\item Effektivwert der Primärspannung: 0.7V
+					\item Effektivwert der Sekundärspannung: 0.7V
+					\item Effektivwert des Primärstroms: 0A
+					\item Effektivwert des Sekundärstroms: 0A
+				\end{itemize}
 	
 	
-	\subsection{Simulation des Kurzschlusses}
-	Im Simulationsmodell wird nun ein Sekundärseitiger Kurzschluss hergestellt. Die Spannung auf der Primärseite $U_1$ des Transformators wird langsam erhöht, bis der Kurzschlussstrom $I_{1k}$ ca. $100mA$ beträgt.\\
-	Anschließend wird in $100mA$ Schritten bis $1A$ erhöht.
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=\textwidth]{images/Vorb-1-3.png}
-		\caption{Messaufbau der Kurzschlusssimulation in PLECS}
-	\end{figure}
+			\subsection{Simulation der Leerlaufkennlinie}
+				Die Primärspannung wurde von 10\% bis 110\% in 20\% Schritten variiert. 100\% stellt hierbei 230V Effektivspannung auf der Primärseite dar. An der sekundären Seite wurden lediglich ein Ampermeter und ein Voltmeter angeschlossen, um eine Sinnvolle Leerlaufkennlinie zu messen.\\
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=\textwidth]{images/Vorb-1-2-Leerlauf-Aufbau.png}
+					\caption{Messaufbau der Leerlaufkennliniensimulation in PLECS}
+				\end{figure}
+				Da die Simulationen stets bei 0.0s beginnen und der Transformator auch hier eine Einschwingzeit benötigt, wurde für die gesamten Messdaten der jeweilige Mittelwert berechnet und auch nur dieser eingezeichnet. Da die Simulationsdauer (3s) deutlich länger ist als die Einschwingdauer (ca. 0.2s) entspricht der Mittelwert der Messwerte den Werten des stationären Zustands.
+				
+				
+				\subsubsection{Effektivwert des Leerlaufstroms $I_{10}$ über Effektivwert der Primärspannung $U_1$}
+					\begin{figure}[H]
+						\centering
+						\includegraphics[width=\textwidth]{images/Vorb-1-2-Leerlauf-Leerlaufstrom.png}
+						\caption{Effektivwert des Leerlaufstroms $I_{1, eff}$ über Effektivwert der Primärspannung $U_{1, eff}$}
+						\label{fig:Vorb-1-2-Leerlauf_I1-U1}
+					\end{figure}
+					
+					Zur Validierung der simulierten Messwerte wird zweckmäßigerweise das Ersatzschaltbild (ESB) des einphasigen Transformators in diesem Betriebszustand herangezogen. Im Unterschied zum im Vorlesungsskript dargestellten ESB können die Eisenverluste ($R_{FE})$ in diesem Fall vernachlässigt werden, da der entsprechende Widerstand gemäß der Parameter aus Abschnitt~\ref{sec:plecs_modell} als unendlich groß angenommen wird.
+					
+				\begin{circuitikz}
+					% Spannungsquelle links
+					\draw (0,0) to[sV, l=$U_1$] (0,3)
+					
+					% Serienzweig: R1 und L1σ mit Strompfeil I10
+					to[R, l=$R_1$, i=$I_{10}$] (3,3)
+					to[L, l=$L_{1\sigma}$] (6,3)
+					
+					% L1H mit äußerem Spannungspfeil
+					to[L, l_=$L_{1H}$, v^=$U_{1H}$] (6,0)
+					
+					
+					% Rückleitung
+					-- (0,0);
+				\end{circuitikz}
+				
+				Gegeben sind die Parameter der Schaltung:
+				$R_1 = 1\,\Omega$, $L_{1\sigma} = 0{,}01\,\text{H}$ und $L_{1H} = 1\,\text{H}$ sowie die Frequenz $f = 50\,\text{Hz}$.
+				
+				Die Impedanz ergibt sich zu:
+				
+				\[
+				\underline{Z} = R_1 + j\,2\pi f (L_{1\sigma} + L_{1H})
+				\]
+				
+				Einsetzen der Werte liefert:
+				
+				\[
+				\underline{Z} = 1 + j\,2\pi \cdot 50 \cdot (0{,}01 + 1)
+				\]
+				
+				\[
+				\underline{Z} = 1 + j\,2\pi \cdot 50 \cdot 1{,}01
+				\]
+				
+				\[
+				\underline{Z} \approx 1 \Omega+ j\,317{,}3 \Omega =317,3*e^{j89,82°}\,\Omega
+				\]
+				
+				Die Admittanz ergibt sich als Kehrwert der Impedanz:
+				
+				\[
+				\underline{Y} = \frac{1}{Z} = \frac{1}{317,3*e^{j89,82°}}=3,15 mS *e^{-j89,82°}
+				\]
+				
+				Da im Diagramm der Strom über der Spannung aufgetragen wurde, entspricht die Steigung der Geraden dem Betrag der Admittanz.
+				
+				Der letzte Messpunkt hat näherungsweise die Koordinaten $U_2 = 253\,\text{V}$ und $I_2 = 0{,}8\,\text{A}$, der erste Punkt $U_1 = 23\,\text{V}$ und $I_1 = 0{,}00696\,\text{A}$.
+				
+				Die Steigung ergibt sich zu:
+				
+				\[
+				m = \frac{\Delta I}{\Delta U}
+				= \frac{I_2 - I_1}{U_2 - U_1}
+				\]
+				
+				Einsetzen der Werte:
+				
+				\[
+				m = \frac{0{,}8 - 0{,}00696}{253 - 23}
+				\]
+				
+				\[
+				m = \frac{0{,}79304}{230}
+				\]
+				
+				\[
+				m \approx 3{,}18 \cdot 10^{-3}\,\text{S}
+				\]
+				
+				Vergleicht man den berechneten Wert mit dem aus der Simulation ermittelten Wert, so zeigt sich eine gute Übereinstimmung. Daraus lässt sich schließen, dass die Simulationsergebnisse plausibel sind und das zugrunde liegende Modell korrekt abgebildet wurde.
+				
+				
+				\subsubsection{Effektivwert der Sekundärspannung $U_2$ über Effektivwert der Primärspannung $U_1$}
+					\begin{figure}[H]
+						\centering
+						\includegraphics[width=\textwidth]{images/Vorb-1-2-Leerlauf-Sekundärspannung.png}
+						\caption{Effektivwert der Sekundärspannung $U_{2}$ über Effektivwert der Primärspannung $U_{1}$}
+					\end{figure}
+					Die Sekundärspannung wird vorrangig durch den Windungsfaktor $"u$ mit 
+					$$
+					"u = \frac{N_1}{N_2} = 10
+					$$
+					festgelegt. \\
+					
+					Es folgt somit, dass $U_2$ idealerweise stets ein Zehntel der Primärspannung betragen sollte.
+					
+					Bei der Betrachtung des Graphen zeigt sich, dass die Simulation dieses theoretisch erwartete Verhalten sehr gut bestätigt und das entsprechende Verhältnis zwischen Primär- und Sekundärspannung korrekt abbildet.
+				
+				
+				\subsubsection{Leistungsfaktor $cos(\varphi)$ im Leerlauf über Effektivwert der Primärspannung $U_1$}	
+				
+					\begin{figure}[H]
+						\centering
+						\includegraphics[width=0.7\linewidth]{images/Vorb-1-2-Leerlauf-cosphi}
+						\caption{Leistungsfaktor $cos(\varphi)$ über Leerlaufspannung}
+						\label{fig:vorb-1-2-leerlauf-cosphi}
+					\end{figure}
+					
+				Zur Validierung kann man die Berechnung von $S$ über die folgende Formel heranziehen:
+				
+				\[
+				\underline{S} = \underline{U}^2 \cdot \underline{Y^*}
+				\]
+				
+				Nimmt man für die Spannung $\underline{U}$ einen Phasenwinkel von $0^\circ$ an, so ergibt sich der negative Phasenwinkel der Admittanz direkt als Winkel der Scheinleistung bzw. als Winkel des Leistungsfaktors.
+				
+				Aus den vorherigen Betrachtungen folgt für die Admittanz näherungsweise ein Winkel von etwa $-90^\circ$. Dies entspricht einem Leistungsfaktor von
+				
+				\[
+				\cos(\varphi) \approx 0
+				\]
+				
+				Da sich die Admittanz bei Änderungen der Spannungsamplitude nicht verändert, bleibt auch der Leistungsfaktor $\cos(\varphi)$ für alle Messpunkte konstant. Die Simulationswerte sind daher plausibel.
+					
+				
+					
+					
+			\subsection{Simulation des Kurzschlusses}
+			
+				Im Simulationsmodell wird nun ein Sekundärseitiger Kurzschluss hergestellt. Die Spannung auf der Primärseite $U_{1k}$ des Transformators wird langsam erhöht, bis der Kurzschlussstrom $I_{1k}$ ca. $100mA$ beträgt.\\
+				Anschließend wird in $100mA$ Schritten bis $1A$ erhöht.
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=\textwidth]{images/Vorb-1-3.png}
+					\caption{Messaufbau der Kurzschlusssimulation in PLECS}
+				\end{figure}
+				
+				Da $R_{Fe}$ laut Angabe unendlich groß wird, ist es durch die elektrische Parallelschaltung zu vernachlässigen. Das selbe gilt für $X_k$, welches ebenfalls elektrisch parallel geschalten wird.\newline
+				\newline
+				Das Ersatzschaltbild des Transformators im Kurzschlussfall lässt sich gemäß Abbildung~\ref{circ: ESBkurzschluss} darstellen.
+				\begin{figure}[H]
+					\centering
+					\begin{circuitikz}
+						% Spannungsquelle links
+						\draw (0,0) to[sV, l=$U_{1k}$] (0,3)
+						
+						% Serienzweig: R1 und L1σ mit Strompfeil I10
+						to[R, l=$R_k$, i=$I_{1k}$] (3,3)
+						to[L, l=$X_{k}$] (6,3)
+						
+						% Ecke in der Rückleitung
+						to(6,0)
+						
+						% Rückleitung
+						-- (0,0);
+						
+					\end{circuitikz}
+					\caption{Ersatzschaltbild des Transformators im Kurzschlussfall}
+					\label{circ: ESBkurzschluss}
+				\end{figure}
+				
+				Die Werte lassen sich wie folgt berechnen:
+				
+				\begin{formel}[H]
+					\begin{align*}
+						R_2' &= R2 \cdot "u^2 \\
+						R_k &= R_1 + R_2' \\
+						X_k &= X_{1\sigma} + X_{2\sigma}' = \sqrt{Z_k^2 - R_k^2} = \frac{U_{1}}{\sqrt{3} \cdot I_\mu} &mit \\
+						I_\mu &= I_1 + \frac{I_2}{"u}
+					\end{align*}
+					\caption{Formeln zur Berechnung der Impedanzen im Kurzschlussfall}
+				\end{formel}
+				
+				Daraus ergeben sich folgende simulierte Messwerte:
+				\begin{table}[H]
+					\begin{tabular}{c|c|c|c|c|c|c|c|c|c|c}
+						$U_{1k}$ in V&  9.4 & 18.8 & 28.2 & 37.6 & 47 & 56.4 & 65.8 & 75.2 & 84.6 & 94\\
+						$I_{1k}$ in A& 0.1 & 0.2 & 0.3 & 0.4 & 0.5 & 0.6 & 0.7 & 0.8 & 0.9 & 1.0\\
+					\end{tabular}
+					\caption{Messergebnisse aus Simulation des Kurzschlussfalls}
+					\label{tab:Kurzschluss}
+				\end{table}
+				
+				Aus den Messwerten ist ein linearer Zusammenhang zwischen der Kurzschlussspannung $U_{1k}$ und dem Kurzschlussstrom $I_{1k}$ erkennbar. Dies deutet darauf hin, dass die Kurzschlussimpedanz $Z_k$ des Transformators konstant ist.\newline
+				\newline
+				Für die Impedanz ergibt sich beispielsweise:
+				\begin{formel}[H]
+					$$
+					Z_k = \frac{U_{1k}}{I_{1k}} \approx \frac{94,V}{1.0,A} = 94,\Omega
+					$$
+					\caption{Impedanz im Kurzschlussfall}
+				\end{formel}
+				Das lineare Verhalten bestätigt die Annahme des vereinfachten Ersatzschaltbildes, bei dem der Magnetisierungszweig vernachlässigt wird. Der Transformator wird im Kurzschlussfall somit im Wesentlichen durch die Serienimpedanz bestehend aus Kupferwiderständen und Streureaktanzen beschrieben. \newline
+				\newline
+				Nichtlineare Effekte, wie beispielsweise die Reaktanz $X_h$ des Transformators als Induktivität, sind im betrachteten Bereich nicht erkennbar.
+				
+				\subsubsection{Effektivwert des Kurzschlussstroms $I_{1k}$ über Effektivwert der Primärspannung $U_{1k}$}
+					\begin{figure}[H]
+						\centering
+						\includegraphics[width=\textwidth]{images/Vorb-1-3-Kurzschluss_I1-U1.png}
+						\caption{Effektivwert des Kurzschlussstroms $I_{1k}$ über Effektivwert der Primärspannung $U_{1k}$}
+					\end{figure}
+					Der dargestellte Verlauf zeigt einen linearen Zusammenhang zwischen dem Kurzschlussstrom $I_{1k}$ und der angelegten Primärspannung $U_{1k}$. Dies bestätigt, dass sich der Transformator im Kurzschlussfall wie eine lineare Impedanz verhält.\newline
+					\newline
+					Die Steigung der Kennlinie entspricht dabei dem Kehrwert der Kurzschlussimpedanz:
+					\begin{formel}
+						$$
+							\frac{\Delta I_{1k}}{\Delta U_{1k}} = \frac{1}{Z_k}	
+						$$
+						\caption{Zusammenhang des Kurzschlussstroms und der Primärspannung}
+					\end{formel}
+					
+					Da die Kennlinie eine Gerade durch den Ursprung darstellt, kann von einer konstanten Impedanz $Z_k$ ausgegangen werden. Dies stimmt mit dem vereinfachten Ersatzschaltbild überein, bei dem lediglich die Serienimpedanz aus Kupferwiderständen und Streureaktanzen berücksichtigt wird.\newline
+					\newline
+					Nichtlineare Effekte, insbesondere eine magnetische Sättigung des Kerns, treten im betrachteten Bereich nicht auf, da die angelegte Spannung vergleichsweise gering ist.
+					
+				\subsubsection{Effektivwert des Kurzschlussstroms $I_{2k}$ über Effektivwert der Primärspannung $U_{1k}$}
+					\begin{figure}[H]
+						\centering
+						\includegraphics[width=\textwidth]{images/Vorb-1-3-Kurzschluss_I2-U1.png}
+						\caption{Effektivwert des Kurzschlussstroms $I_{2k}$ über Effektivwert der Primärspannung $U_{1k}$}
+					\end{figure}
+					Der Verlauf des Kurzschlussstroms $I_{2k}$ in Abhängigkeit von der Primärspannung $U_{1k}$ zeigt ebenfalls einen linearen Zusammenhang. Dies ist zu erwarten, da der Sekundärstrom über das Übersetzungsverhältnis direkt mit dem Primärstrom gekoppelt ist.\newline
+					\newline
+					Für den idealen Transformator gilt:
+					\begin{formel}
+						$$
+							I_{2k} = "u \cdot I_{1k}
+						$$	
+						\caption{Abhängigkeit des Sekundären Kurzschlussstroms über des Primären Kurzschlussstroms und dem Windungsfaktor}
+					\end{formel}
+					
+					Da bereits für den Primärstrom ein linearer Zusammenhang mit der Spannung festgestellt wurde, ergibt sich auch für den Sekundärstrom eine proportionale Abhängigkeit von der Primärspannung.\newline
+					Die lineare Kennlinie bestätigt somit, dass das Transformatorverhalten im Kurzschlussfall durch die konstante Serienimpedanz bestimmt wird.
+					
+				\subsubsection{Leistungsfaktor $cos \varphi_k$ im Kurzschluss über Effektivwert der Primärspannung $U_{1k}$}
+					\begin{figure}[H]
+						\centering
+						\includegraphics[width=\textwidth]{images/Vorb-1-3-Kurzschluss-Leistungsfaktor.png}
+						\caption{Leistungsfaktor $cos \varphi_k$ im Kurzschluss über Effektivwert der Primärspannung $U_{1k}$}
+					\end{figure}
+					Bei näherer Betrachtung ergibt $\Delta t$ einen Wert von 0.002s.\\
+					Daraus folgt:
+					\begin{formel}
+						\begin{align*}
+							\varphi_{UI} &= 360 \cdot 50Hz \cdot 0.002s = 36\degree	\\
+						\end{align*}
+						\caption{Berechnung von $\varphi$ im Kurzschlussfall}
+					\end{formel}
+
+					Der Verlauf des Leistungsfaktors $\cos(\varphi_k)$ zeigt über den betrachteten Bereich konstante Werte. Dies lässt sich dadurch erklären, dass sich das Verhältnis von Wirk- zu Blindanteil der Impedanz im Kurzschlussfall nicht ändert.\newline
+					\newline
+					Die Kurzschlussimpedanz $Z_k$ setzt sich aus dem ohmschen Widerstand $R_k$ und der induktiven Reaktanz $X_k$ zusammen:
+					\begin{formel}
+						$$
+							Z_k = R_k + j X_k	
+						$$
+						\caption{Zusammensetzung von $R_k$ und $X_k$ im Kurzschlussfall}
+					\end{formel}
+
+					Da beide Größen als auch die Frequenz konstant sind, bleibt auch der Phasenwinkel $\varphi_k$ zwischen Strom und Spannung unverändert. Folglich ergibt sich ein konstanter Leistungsfaktor.\newline
+					\newline
+					Der zuvor bestimmte Phasenwinkel von etwa $\varphi \approx 36^\circ$ führt zu einem Leistungsfaktor $\lambda$ von
+					\begin{formel}
+						$$
+							\lambda = \cos(\varphi_k) \approx 0{,}81
+						$$
+						\caption{Leistungsfaktor im Kurzschlussfall}
+					\end{formel}
+					
+					Dies bestätigt, dass im Kurzschlussfall sowohl ohmsche als auch induktive Anteile zur Impedanz beitragen und das Verhalten des Transformators durch eine feste komplexe Impedanz beschrieben werden kann.
+					
+			\subsection{Simulation des Einschaltstroms (Eng.: inrush current)}
+				
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=1\linewidth]{images/Vorb-1-4-einschaltstrom}
+				\caption{Einschaltstrom I1 bei verschiedenen Phasenlagen von U}
+				\label{fig:vorb-1-4-einschaltstrom}
+			\end{figure}
+			 
 	
-	Daraus ergaben sich folgende Werte:
-	\begin{table}[H]
-		\begin{tabular}{c|c|c|c|c|c|c|c|c|c|c}
-			$U_1$ in V&  9.4 & 18.8 & 28.2 & 37.6 & 47 & 56.4 & 65.8 & 75.2 & 84.6 & 94\\
-			$I_{1k}$ in A& 0.1 & 0.2 & 0.3 & 0.4 & 0.5 & 0.6 & 0.7 & 0.8 & 0.9 & 1.0\\
-		\end{tabular}
-	\end{table}
-	
-	\subsubsection{Effektivwert des Kurzschlussstroms $I_{1k}$ über Effektivwert der Primärspannung $U_1$}
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=\textwidth]{images/Vorb-1-3-Kurzschluss_I1-U1.png}
-		\caption{Effektivwert des Kurzschlussstroms $I_{1k}$ über Effektivwert der Primärspannung $U_1$}
-		\label{fig: Kurzschluss_I1k-U1}
-	\end{figure}
-	In der Abbildung~\ref{fig: Kurzschluss_I1k-U1} klar ein linearer Verlauf auf der Primärseite des Transformators zu erkennen. Damit ist der Primärseitige Kurzschlussstrom $I_{1k}$ linear abhängig von der Primärspannung $U_1$.
-	$$
-	I_{1k} = f(U_{1})
-	$$
-	
-	Kurzschlussstrom $I_{1k}$ lässt sich berechnen mit $R_k$, $Z_k$ und $Z_h$.
-	\begin{align*}
-		R_k &= R_1 + R_2' 
-	\end{align*}
-	
-	
-	\subsubsection{Effektivwert des Kurzschlussstroms $I_{2k}$ über Effektivwert der Primärspannung $U_1$}
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=\textwidth]{images/Vorb-1-3-Kurzschluss_I2-U1.png}
-		\caption{Effektivwert des Kurzschlussstroms $I_{2k}$ über Effektivwert der Primärspannung $U_1$}
-	\end{figure}
-	TBC TBC TBC\\ \\
-	
-	Ist Linear \\
-	Kurzschlussstrom $I_{2k}$ ist abhängig von $R_k$, $Z_k$, $Z_h$ und $I_{1k}$.
-	
-	\subsubsection{Leistungsfaktor $cos \varphi_k$ im Kurzschluss über Effektivwert der Primärspannung $U_1$}
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=\textwidth]{images/Vorb-1-3-Kurzschluss-Leistungsfaktor.png}
-		\caption{Leistungsfaktor $cos \varphi_k$ im Kurzschluss über Effektivwert der Primärspannung $U_1$}
-	\end{figure}
-	Bei näherer Betrachtung ergibt $\Delta t$ einen Wert von 0.002s.\\
-	Daraus folgt:
-	$$
-	\varphi_{UI} = 360 \cdot 50Hz \cdot 0.002s = 36\degree
-	$$
-	und
-	$$
-	cos \varphi_{UI} = 0.809
-	$$
-	TBC TBC TBC \\ \\
-	
-	Damit sich cos phi ändert, muss ich ja Impedanz ändern. Nicht Spannung oder Strom. Also bleibt cos phi auch bei allen Stufen gleich
-	
-	\subsection{Simulation des Einschaltstroms (Eng.: inrush current)}
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=\textwidth]{images/Vorb-1-4.png}
-		\caption{Simulation des Einschaltstroms (Eng.: inrush current)}
-	\end{figure}
-	
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=\textwidth]{images/Vorb-1-4_i-t.png}
-		\caption{Simulation des Einschaltstroms (Eng.: inrush current)}
-	\end{figure}
-	
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=\textwidth]{images/Vorb-1-4_i-t-zoom.png}
-		\caption{Simulation des Einschaltstroms (Eng.: inrush current)}
-	\end{figure}
-	
-	TBC TBC TBC \\ \\
-	Für Ueff wurde 40V (also 40V * sqrt(2)) gewählt. Außerdem befinden wir uns wieder im Leerlauf.
-	
-	FALSCH! Habe Degree anstelle von RAD angegeben! 
-	
-	
+				
 	\section{Versuchsdurchführung}
 	
 	\section{Versuchsauswertung}
