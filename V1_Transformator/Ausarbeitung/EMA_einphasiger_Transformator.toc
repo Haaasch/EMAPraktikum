@@ -10,6 +10,12 @@
 \contentsline {subsubsection}{\numberline {1.3.2}Effektivwert des Kurzschlussstroms $I_{2k}$ über Effektivwert der Primärspannung $U_1$}{9}{}%
 \contentsline {subsubsection}{\numberline {1.3.3}Leistungsfaktor $cos \varphi _k$ im Kurzschluss über Effektivwert der Primärspannung $U_1$}{10}{}%
 \contentsline {subsection}{\numberline {1.4}Simulation des Einschaltstroms (Eng.: inrush current)}{11}{}%
-\contentsline {section}{\numberline {2}Versuchsdurchführung}{11}{}%
-\contentsline {section}{\numberline {3}Versuchsauswertung}{11}{}%
-\contentsline {section}{\numberline {4}Checkliste für die Versuchsausarbeitung}{11}{}%
+\contentsline {section}{\numberline {2}Versuchsdurchführung}{12}{}%
+\contentsline {subsection}{\numberline {2.1}2.3 Leerlauf - Messung der Leerlaufkennlinie}{12}{}%
+\contentsline {paragraph}{Diskussion der Messergebnisse}{13}{}%
+\contentsline {subsection}{\numberline {2.2}Leerlauf - Induzierte Spannungen bei Leerlauf}{14}{}%
+\contentsline {paragraph}{Diskussion der Messwerte}{15}{}%
+\contentsline {subsection}{\numberline {2.3}Leerlauf - Induziert Spannungen bei Leerlauf}{16}{}%
+\contentsline {paragraph}{Diskussion der Messwerte}{16}{}%
+\contentsline {section}{\numberline {3}Versuchsauswertung}{16}{}%
+\contentsline {section}{\numberline {4}Checkliste für die Versuchsausarbeitung}{16}{}%

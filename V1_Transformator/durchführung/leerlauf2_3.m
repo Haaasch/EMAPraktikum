@@ -36,11 +36,7 @@ cos_phi = Po./(U1.*I0)
 % PLOTS
 % =========================
 
-U1 = [23 46 69 92 115 138 161 184 207 230];
-I0 = [0.1 0.12 0.15 0.2 0.28 0.4 0.6 0.9 1.3 1.8];
-cos_phi = [0.2 0.22 0.25 0.3 0.35 0.4 0.45 0.5 0.55 0.6];
-P0 = [5 7 10 15 22 35 50 75 110 160];
-Q0 = [20 30 45 60 80 110 150 200 270 350];
+
 
 
 
@@ -50,32 +46,32 @@ figure;
 subplot(2,2,1);
 plot(U1, I0, 'o-b', 'LineWidth', 2);
 grid on;
-xlabel('U1 [V]');
-ylabel('I0 [A]');
-title('Leerlaufstrom I0 = f(U1)');
+xlabel('U_{1} [V]');
+ylabel('I_{10} [A]');
+title('Leerlaufstrom I_{10} = f(U_1)');
 
 % 2. Wirkleistung über Spannung
 subplot(2,2,2);
 plot(U1, P0, 'o-r', 'LineWidth', 2);
 grid on;
-xlabel('U1 [V]');
-ylabel('P0 [W]');
-title('Wirkleistung P0 = f(U1)');
+xlabel('U_1 [V]');
+ylabel('P_0 [W]');
+title('Wirkleistung P_0 = f(U_1)');
 
 % 3. Blindleistung über Spannung
 subplot(2,2,3);
 plot(U1, Q0, 'o-g', 'LineWidth', 2);
 grid on;
-xlabel('U1 [V]');
-ylabel('Q0 [var]');
-title('Blindleistung Q0 = f(U1)');
+xlabel('U_1 [V]');
+ylabel('Q_0 [var]');
+title('Blindleistung Q_0 = f(U_1)');
 
 % 4. Leistungsfaktor über Spannung
 subplot(2,2,4);
 plot(U1, cos_phi, 'o-m', 'LineWidth', 2);
 grid on;
-xlabel('U1 [V]');
-ylabel('cos(\phi)');
-title('Leistungsfaktor cos(\phi) = f(U1)');
+xlabel('U_1 [V]');
+ylabel('cos(\phi_0)');
+title('Leistungsfaktor cos(\phi_0) = f(U_1)');
 
 sgtitle('Leerlaufkennlinie des Transformators');

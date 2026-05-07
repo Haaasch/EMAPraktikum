@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.11.27)  6 MAY 2026 09:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.11.27)  7 MAY 2026 10:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1018,18 +1018,25 @@ _Logo_farbig__zweizeilig_.jpg>] (EMA_einphasiger_Transformator.toc)
 \openout6 = `EMA_einphasiger_Transformator.toc'.
 
 
-(EMA_einphasiger_Transformator.lof)
+(EMA_einphasiger_Transformator.lof
+Overfull \hbox (20.40334pt too wide) in paragraph at lines 12--12
+ [][] []\T1/cmr/m/n/10 Leerlaufkennlinie des Leer-lauf-stroms $\OML/cmm/m/it/10
+ I[]$\T1/cmr/m/n/10 , des Leis-tungs-fak-tors $\OML/cmm/m/it/10 cos\OT1/cmr/m/n
+/10 (\OML/cmm/m/it/10 ^^^[]\OT1/cmr/m/n/10 )$\T1/cmr/m/n/10 , 
+ []
+
+[1])
 \tf@lof=\write7
 \openout7 = `EMA_einphasiger_Transformator.lof'.
 
- [1] [2]
-<images/Vorb-1-1.png, id=25, 959.83594pt x 542.025pt>
+ [2] [3]
+<images/Vorb-1-1.png, id=28, 959.83594pt x 542.025pt>
 File: images/Vorb-1-1.png Graphic file (type png)
 <use images/Vorb-1-1.png>
 Package pdftex.def Info: images/Vorb-1-1.png  used on input line 87.
 (pdftex.def)             Requested size: 345.0pt x 194.82283pt.
  [1 <./images/Vorb-1-1.png>]
-<images/Vorb-1-2-Leerlauf-Aufbau.png, id=35, 706.89093pt x 398.99063pt>
+<images/Vorb-1-2-Leerlauf-Aufbau.png, id=38, 706.89093pt x 398.99063pt>
 File: images/Vorb-1-2-Leerlauf-Aufbau.png Graphic file (type png)
 <use images/Vorb-1-2-Leerlauf-Aufbau.png>
 Package pdftex.def Info: images/Vorb-1-2-Leerlauf-Aufbau.png  used on input lin
@@ -1040,7 +1047,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 114--119
 
  []
 
-<images/Vorb-1-2-Leerlauf-Leerlaufstrom.png, id=36, 900.36375pt x 674.52pt>
+<images/Vorb-1-2-Leerlauf-Leerlaufstrom.png, id=39, 900.36375pt x 674.52pt>
 File: images/Vorb-1-2-Leerlauf-Leerlaufstrom.png Graphic file (type png)
 <use images/Vorb-1-2-Leerlauf-Leerlaufstrom.png>
 Package pdftex.def Info: images/Vorb-1-2-Leerlauf-Leerlaufstrom.png  used on in
@@ -1070,7 +1077,7 @@ LaTeX Warning: Command \textdegree invalid in math mode on input line 175.
 
 Missing character: There is no � in font cmr7!
 Missing character: There is no � in font cmr7!
-<images/Vorb-1-2-Leerlauf-Sekund채rspannung.png, id=44, 900.36375pt x 674.52pt>
+<images/Vorb-1-2-Leerlauf-Sekund채rspannung.png, id=48, 900.36375pt x 674.52pt>
 
 File: images/Vorb-1-2-Leerlauf-Sekund채rspannung.png Graphic file (type png)
 <use images/Vorb-1-2-Leerlauf-Sekund채rspannung.png>
@@ -1082,20 +1089,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 215--217
 
  []
 
-<images/Vorb-1-2-Leerlauf-cosphi.png, id=49, 875.27pt x 656.4525pt>
+<images/Vorb-1-2-Leerlauf-cosphi.png, id=52, 875.27pt x 656.4525pt>
 File: images/Vorb-1-2-Leerlauf-cosphi.png Graphic file (type png)
 <use images/Vorb-1-2-Leerlauf-cosphi.png>
 Package pdftex.def Info: images/Vorb-1-2-Leerlauf-cosphi.png  used on input lin
 e 227.
 (pdftex.def)             Requested size: 241.49895pt x 181.12099pt.
 [5 <./images/Vorb-1-2-Leerlauf-Sekund채rspannung.png (PNG copy)>]
-<images/Vorb-1-3.png, id=53, 709.90219pt x 371.13657pt>
+<images/Vorb-1-3.png, id=56, 709.90219pt x 371.13657pt>
 File: images/Vorb-1-3.png Graphic file (type png)
 <use images/Vorb-1-3.png>
 Package pdftex.def Info: images/Vorb-1-3.png  used on input line 256.
 (pdftex.def)             Requested size: 345.0pt x 180.36911pt.
  [6 <./images/Vorb-1-2-Leerlauf-cosphi.png (PNG copy)>]
-<images/Vorb-1-3-Kurzschluss_I1-U1.png, id=57, 877.2775pt x 658.46pt>
+<images/Vorb-1-3-Kurzschluss_I1-U1.png, id=60, 877.2775pt x 658.46pt>
 File: images/Vorb-1-3-Kurzschluss_I1-U1.png Graphic file (type png)
 <use images/Vorb-1-3-Kurzschluss_I1-U1.png>
 Package pdftex.def Info: images/Vorb-1-3-Kurzschluss_I1-U1.png  used on input l
@@ -1111,7 +1118,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 274--275
 
  []
 
-<images/Vorb-1-3-Kurzschluss_I2-U1.png, id=62, 877.2775pt x 658.46pt>
+<images/Vorb-1-3-Kurzschluss_I2-U1.png, id=65, 877.2775pt x 658.46pt>
 File: images/Vorb-1-3-Kurzschluss_I2-U1.png Graphic file (type png)
 <use images/Vorb-1-3-Kurzschluss_I2-U1.png>
 Package pdftex.def Info: images/Vorb-1-3-Kurzschluss_I2-U1.png  used on input l
@@ -1127,7 +1134,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 286--287
 
  []
 
-<images/Vorb-1-3-Kurzschluss-Leistungsfaktor.png, id=66, 581.92406pt x 449.4290
+<images/Vorb-1-3-Kurzschluss-Leistungsfaktor.png, id=69, 581.92406pt x 449.4290
 6pt>
 File: images/Vorb-1-3-Kurzschluss-Leistungsfaktor.png Graphic file (type png)
 <use images/Vorb-1-3-Kurzschluss-Leistungsfaktor.png>
@@ -1144,16 +1151,36 @@ Underfull \hbox (badness 10000) in paragraph at lines 305--307
 
  []
 
-<images/Vorb-1-4-einschaltstrom.png, id=70, 663.98062pt x 454.69875pt>
+<images/Vorb-1-4-einschaltstrom.png, id=74, 663.98062pt x 454.69875pt>
 File: images/Vorb-1-4-einschaltstrom.png Graphic file (type png)
 <use images/Vorb-1-4-einschaltstrom.png>
 Package pdftex.def Info: images/Vorb-1-4-einschaltstrom.png  used on input line
  314.
 (pdftex.def)             Requested size: 345.0pt x 236.25737pt.
-[10 <./images/Vorb-1-3-Kurzschluss-Leistungsfaktor.png>] [11 <./images/Vorb-1-4
--einschaltstrom.png>]
+[10 <./images/Vorb-1-3-Kurzschluss-Leistungsfaktor.png>]
+<images/durch-2-3-Leerlaufkennlinie.png, id=79, 875.27pt x 656.4525pt>
+File: images/durch-2-3-Leerlaufkennlinie.png Graphic file (type png)
+<use images/durch-2-3-Leerlaufkennlinie.png>
+Package pdftex.def Info: images/durch-2-3-Leerlaufkennlinie.png  used on input 
+line 327.
+(pdftex.def)             Requested size: 345.0pt x 258.74998pt.
+ [11 <./images/Vorb-1-4-einschaltstrom.png>] [12 <./images/durch-2-3-Leerlaufke
+nnlinie.png (PNG copy)>]
+<images/B-H-Kennlinie.png, id=87, 400.49625pt x 303.38344pt>
+File: images/B-H-Kennlinie.png Graphic file (type png)
+<use images/B-H-Kennlinie.png>
+Package pdftex.def Info: images/B-H-Kennlinie.png  used on input line 362.
+(pdftex.def)             Requested size: 241.49895pt x 182.94342pt.
+ [13 <./images/B-H-Kennlinie.png>]
+<images/Durch-2-4-magnetischer-Kreis.jpeg, id=92, 1109.14375pt x 574.145pt>
+File: images/Durch-2-4-magnetischer-Kreis.jpeg Graphic file (type jpg)
+<use images/Durch-2-4-magnetischer-Kreis.jpeg>
+Package pdftex.def Info: images/Durch-2-4-magnetischer-Kreis.jpeg  used on inpu
+t line 417.
+(pdftex.def)             Requested size: 241.49895pt x 125.00694pt.
+ [14] [15 <./images/Durch-2-4-magnetischer-Kreis.jpeg>] [16]
 
-LaTeX Warning: Empty bibliography on input line 332.
+LaTeX Warning: Empty bibliography on input line 510.
 
 (EMA_einphasiger_Transformator.aux)
  ***********
@@ -1166,10 +1193,10 @@ Package logreq Info: Writing requests to 'EMA_einphasiger_Transformator.run.xml
 
  ) 
 Here is how much of TeX's memory you used:
- 43534 strings out of 474485
- 1067062 string characters out of 5743733
- 2113855 words of memory out of 5000000
- 65392 multiletter control sequences out of 15000+600000
+ 43578 strings out of 474485
+ 1068762 string characters out of 5743733
+ 2113918 words of memory out of 5000000
+ 65436 multiletter control sequences out of 15000+600000
  568105 words of font info for 51 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  99i,11n,107p,704b,2371s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1189,9 +1216,9 @@ Users/lukas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.p
 fb><C:/Users/lukas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
 /cmsy10.pfb><C:/Users/lukas/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
 sfonts/cm/cmsy7.pfb>
-Output written on EMA_einphasiger_Transformator.pdf (14 pages, 718517 bytes).
+Output written on EMA_einphasiger_Transformator.pdf (20 pages, 948269 bytes).
 PDF statistics:
- 380 PDF objects out of 1000 (max. 8388607)
+ 423 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 68 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 83 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -320,6 +320,184 @@
 			
 	\section{Versuchsdurchführung}
 	
+	\subsection{2.3 Leerlauf - Messung der Leerlaufkennlinie}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1\linewidth]{images/durch-2-3-Leerlaufkennlinie}
+		\caption{Leerlaufkennlinie des Leerlaufstroms $I_{10}$, des Leistungsfaktors $cos(\phi_{0})$, der Blindleistung $Q_0$ und der Wirkleistung $P_0$}
+		\label{fig:durch-2-3-leerlaufkennlinie}
+	\end{figure}
+	
+	\begin{table}[h!]
+		\centering
+		\begin{tabular}{c|c|c|c|c}
+			\textbf{$U_1$ (V)} & \textbf{$I_{10}$ (A)} & \textbf{$\cos(\varphi_0)$} & \textbf{$P_0$ (W)} & \textbf{$Q_0$ (var)} \\
+			\hline
+			39.04  & 0.11  & 0.000 & 0.0   & 0.0   \\
+			119.7  & 0.338 & 0.244 & 9.89  & 39.26 \\
+			198.4  & 0.581 & 0.207 & 23.9  & 113.0 \\
+			275.1  & 0.884 & 0.180 & 43.7  & 239   \\
+			360    & 1.38  & 0.158 & 78.4  & 489   \\
+			442    & 3.24  & 0.109 & 156   & 1424  \\
+		\end{tabular}
+		\caption{Messwerte des Leerlaufstroms $I_{10}$, des Leistungsfaktors $cos(\phi_{0})$, der Blindleistung $Q_0$ und der Wirkleistung $P_0$}
+
+	\end{table}
+	
+	Betrachtet man den Leerlaufstrom $I_{10}$ so fällt auf das dieser im Rahmen der Mess- und Zeichenungenauigkeit bis zum Wert bei $U_1 = 360 V$ linear verläuft. Der folgende Wert bei $U_1 = 442 V$ passt nicht mehr zum linearen Verlauf. Bei Betrachtung der Wirk- und Blindleistung und den daraus resultierenden Leistungsfaktor $\cos(\varphi_0)$ fällt auf das mit steigender Spannung die Wirk- und Blindleistung steigt. Jedoch mit Zunehmenden Spannungswert von $U_1$ die Blindleistung stärker ansteigt als die Wirkleistung und in folge dessen der Leistungsfaktor des Transformators sinkt.
+	
+	Der erste Wert in den Messreihen ist nicht zu beachten, da dass Messgerät in diesem Messpunkt falsche Werte angezeigt hat, da zero current blocking aktiviert war.
+	
+	\paragraph{Diskussion der Messergebnisse}
+	
+	Im Leerlauf gilt näherungsweise, dass die induzierte Spannung \(U_i\) der angelegten Spannung \(U_1\) entspricht. Die magnetische Feldstärke \(H\) ist proportional zum Magnetisierungsstrom:
+	
+	\[
+	H = \frac{NI}{l}
+	\]
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\linewidth]{images/B-H-Kennlinie}
+		\caption{B-H Kennlinie\newline (Quelle: https://www.magna-c.com/lexikon/B/B-H-Kurve)}
+		\label{fig:b-h-kennlinie}
+	\end{figure}
+	
+	
+	Steigt der Strom \(I\), so steigt ebenfalls die magnetische Feldstärke \(H\). Diese erzeugt im Eisenkern die magnetische Flussdichte \(B\). Im linearen Bereich der \(B\)-\(H\)-Kennlinie führt eine Erhöhung von \(H\) zu einer annähernd proportionalen Erhöhung von \(B\) (siehe Abbildung ~12). Der Zusammenhang lautet:
+	
+	\[
+	B = \mu_r \mu_0 H
+	\]
+	
+	Die induzierte Spannung ergibt sich aus der zeitlichen Änderung der magnetischen Flussdichte:
+	
+	\[
+	U_i = -N A \frac{dB}{dt}
+	\]
+	
+	Da Windungszahl \(N\) und Kernquerschnitt \(A\) konstant sind, muss bei steigender angelegter Spannung auch die Flussdichte \(B\) beziehungsweise deren zeitliche Änderung zunehmen.
+	
+	Bei kleinen Spannungen befindet sich der Transformator noch im linearen Bereich der Magnetisierungskennlinie, weshalb der Leerlaufstrom zunächst annähernd linear ansteigt. Ab einer Spannung von etwa \(U_1 = 442\,\mathrm{V}\) gerät der Eisenkern jedoch zunehmend in magnetische Sättigung, d.H. die Steigung im B-H Graph nimmt ab und damit entsprechend auch \(\mu_r\).
+	
+	Mit zunehmender Sättigung sind bereits viele Elementarmagnete des Eisenkerns ausgerichtet. Dadurch kann sich das Material nur noch geringfügig weiter magnetisieren. Die relative Permeabilität \(\mu_r\) sinkt deshalb stark ab. Folglich führt eine starke Erhöhung der magnetischen Feldstärke \(H\) nur noch zu einer kleinen Erhöhung der Flussdichte \(B\).
+	
+	Dadurch steigt die induzierte Gegenspannung nicht mehr proportional zur angelegten Spannung an. Die verbleibende Spannungsdifferenz verursacht einen starken Anstieg des Magnetisierungsstromes \(I_{10}\). Gleichzeitig wird mehr Energie zum Aufbau des Magnetfeldes benötigt, wodurch insbesondere die Blindleistung stark ansteigt. Da die Blindleistung stärker zunimmt als die Wirkleistung, sinkt der Leistungsfaktor \(\cos(\varphi_0)\) des Transformators.
+	
+	\subsection{Leerlauf - Induzierte Spannungen bei Leerlauf}
+	
+	\begin{table}[h]
+		\centering
+		\begin{tabular}{|c|c|}
+			\hline
+			Messgröße & Wert \\ 
+			\hline
+			\(U_{1U}\)   & \(401{,}6\,\mathrm{V}\) \\ 
+			\hline
+			\(U_{2U}\) & \(66{,}1\,\mathrm{V}\) \\ 
+			\hline
+			\(U_{2V}\) & \(62{,}4\,\mathrm{V}\) \\ 
+			\hline
+			\(U_{2W}\) & \(4{,}52\,\mathrm{V}\) \\ 
+			\hline
+		\end{tabular}
+		\caption{Gemessene effektive Primär- und Sekundärspannungen}
+		\label{tab:spannungen}
+	\end{table}
+	
+	Bei der Messung der Sekundärspannungen des Transformators im Leerlauf fällt auf, dass die Spannungen \(U_{2U}\) und \(U_{2V}\) annähernd gleich groß sind, während die Spannung \(U_{2W}\) deutlich kleiner ausfällt. 
+	
+	
+
+	\paragraph{Diskussion der Messwerte}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\linewidth]{images/Durch-2-4-magnetischer-Kreis}
+		\caption{vereinfachter magnetischer Kreis des Transformators}
+		\label{fig:durch-2-4-magnetischer-kreis}
+	\end{figure}
+	
+Es lässt sich zeigen, dass der magnetische Fluss maßgeblich die induzierte Spannung bestimmt. Für einen vereinfachten homogenen magnetischen Kreis gilt:
+
+\[
+B = \frac{\Phi}{A}
+\]
+
+Da im linken Eisenkern die Spulen \(1U1-1U2\) und \(2U1-2U2\) übereinander angeordnet sind, wird die Spule \(2U1-2U2\) durch den größten magnetischen Fluss \(\Phi_1\) durchflossen.
+
+Im mittleren Eisenkern teilt sich dieser Fluss auf:
+
+\[
+\Phi_1 = \Phi_2 + \Phi_3
+\]
+
+Unter der Annahme eines homogenen Materials ist der magnetische Widerstand im Zweig von \(\Phi_3\) deutlich größer (mindestens etwa dreifach) als im mittleren Eisenkern. Dadurch ist der magnetische Fluss \(\Phi_3\) entsprechend kleiner als \(\Phi_2\).
+
+Nach dem Induktionsgesetz gilt bei Annahme eines homogenen magnetischen Kreises:
+
+\begin{align*}
+	u_i &= -N \cdot \frac{dB}{dt} \\
+	u_i &= -\frac{N}{A} \cdot \frac{d\Phi}{dt} \quad
+\end{align*}
+
+Damit ist die induzierte Spannung proportional zur zeitlichen Änderung des magnetischen Flusses:
+
+\[
+U_{2U} \propto \frac{d\Phi_1}{dt}, \quad
+U_{2V} \propto \frac{d\Phi_2}{dt}, \quad
+U_{2W} \propto \frac{d\Phi_3}{dt}
+\]
+
+Aus der Knotenpunktregel des magnetischen Kreises folgt direkt:
+
+\[
+\frac{d\Phi_1}{dt} = \frac{d\Phi_2}{dt} + \frac{d\Phi_3}{dt}
+\;\;\Rightarrow\;\;
+U_{2U} = U_{2V} + U_{2W}
+\]
+
+Diese Beziehung stimmt im Rahmen der Messungenauigkeit mit den experimentellen Werten überein:
+
+
+
+\[
+66{,}1\,\text{V} \approx 62{,}4\,\text{V} + 4{,}52\,\text{V}
+\]
+	
+\subsection{Leerlauf - Induziert Spannungen bei Leerlauf}
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|c|c|}
+		\hline
+		Größe & Spannung [V] \\
+		\hline
+		$U_{1V}$   & 397.5 \\
+		$U_{2U}$ & 32.3 \\
+		$U_{2V}$ & 65.4 \\
+		$U_{2W}$ & 32.9 \\
+		\hline
+	\end{tabular}
+	\caption{Primär- und Sekundärspannungen des Transformators}
+\end{table}
+
+Bei Versorgung der Spule \(1V1 - 1V2\) fällt auf, dass die Spannung \(U_{2V}\) in etwa der Summe der Spannungen \(U_{2U}\) und \(U_{2W}\) entspricht.
+
+\paragraph{Diskussion der Messwerte}
+
+Aus dem magnetischen Kreis in Abbildung 13 lässt sich erkennen, dass sich bei Vertauschen des mittleren magnetischen Widerstands mit der magnetischen Spannungsquelle im linken Joch der magnetische Fluss \(\Phi_2\) symmetrisch in \(\Phi_1\) und \(\Phi_3\) aufteilen muss.
+
+Daraus folgt in Analogie zu Abschnitt 2.4, dass auch die gemessenen Spannungen dem theoretischen Verhalten entsprechen. Es gilt näherungsweise:
+
+\[
+U_{2V} \approx U_{2U} + U_{2W}
+\]
+
+Die Messwerte bestätigen somit das erwartete Verhalten des magnetischen Kreises innerhalb der Messunsicherheit.
+
+	
 	\section{Versuchsauswertung}
 	
 	\section{Checkliste für die Versuchsausarbeitung}
