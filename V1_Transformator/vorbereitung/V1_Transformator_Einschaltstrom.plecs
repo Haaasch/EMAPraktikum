@@ -3,7 +3,7 @@ Plecs {
   Version       "5.0"
   CircuitModel  "ContStateSpace"
   StartTime     "0.0"
-  TimeSpan      "0.2"
+  TimeSpan      "0.3"
   Timeout       ""
   Solver        "auto"
   MaxStep       "1e-5"
@@ -96,7 +96,7 @@ Plecs {
       }
       Parameter {
         Variable      "phi"
-        Value         "pi/6*3"
+        Value         "pi/6*4"
         Show          off
       }
     }
@@ -199,7 +199,7 @@ Plecs {
       Flipped       off
       LabelPosition south
       Probe {
-        Component     "Am1"
+        Component     "Am2"
         Path          ""
         Signals       {"Measured current"}
       }
@@ -213,11 +213,11 @@ Plecs {
       Flipped       off
       LabelPosition south
       Frame         [-15, -15; 15, 15]
-      Location      [792, 187; 1536, 631]
+      Location      [792, 187; 1536, 640]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAADAA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAGIA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABiAP///wAAAAMAAALoAAAAUfw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAAugAAABEAP///wAAAugAAAFGAAAA"
+"///wAAAGIA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABiAP///wAAAAMAAALoAAAAVvw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAAugAAABEAP///wAAAugAAAFKAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
@@ -299,15 +299,6 @@ Plecs {
       }
     }
     Component {
-      Type          Ammeter
-      Name          "Am1"
-      Show          on
-      Position      [385, 185]
-      Direction     up
-      Flipped       off
-      LabelPosition west
-    }
-    Component {
       Type          ToFile
       Name          "To File"
       Show          off
@@ -317,7 +308,7 @@ Plecs {
       LabelPosition north
       Parameter {
         Variable      "Filename"
-        Value         "V1_Einschaltstrom_90degree"
+        Value         "V1_Einschaltstrom_120degree"
         Show          off
         Evaluate      off
       }
@@ -360,11 +351,11 @@ Plecs {
       Flipped       off
       LabelPosition south
       Frame         [-15, -15; 15, 15]
-      Location      [522, 39; 1373, 920]
+      Location      [522, 39; 1373, 956]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAAFgA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGIA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABiAP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABEAP///wAAA1MAAANSAAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABEAP///wAAA1MAAAN2AAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
@@ -432,40 +423,22 @@ Plecs {
       }
     }
     Component {
-      Type          Reference
-      SrcComponent  "Components/Control/Filters/RMS Value"
-      Name          "RMS Value"
+      Type          Voltmeter
+      Name          "Vm1"
       Show          on
-      Position      [150, 95]
+      Position      [420, 185]
       Direction     up
       Flipped       off
+      LabelPosition west
+    }
+    Component {
+      Type          Ammeter
+      Name          "Am2"
+      Show          on
+      Position      [360, 165]
+      Direction     left
+      Flipped       off
       LabelPosition south
-      Frame         [-15, -15; 15, 15]
-      Parameter {
-        Variable      "x0"
-        Value         "0"
-        Show          off
-      }
-      Parameter {
-        Variable      "ts"
-        Value         "0"
-        Show          off
-      }
-      Parameter {
-        Variable      "fs"
-        Value         "10"
-        Show          off
-      }
-      Terminal {
-        Type          Input
-        Position      [-15, 0]
-        Direction     left
-      }
-      Terminal {
-        Type          Output
-        Position      [19, 0]
-        Direction     right
-      }
     }
     Connection {
       Type          Wire
@@ -486,17 +459,9 @@ Plecs {
     Connection {
       Type          Wire
       SrcComponent  "Linear Trafo2"
-      SrcTerminal   3
-      Points        [350, 175; 350, 165]
-      DstComponent  "Am1"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Wire
-      SrcComponent  "Linear Trafo2"
       SrcTerminal   4
       Points        [350, 195; 350, 205]
-      DstComponent  "Am1"
+      DstComponent  "Vm1"
       DstTerminal   2
     }
     Connection {
@@ -535,19 +500,27 @@ Plecs {
       DstTerminal   1
     }
     Connection {
-      Type          Signal
-      SrcComponent  "RMS Value"
-      SrcTerminal   2
-      DstComponent  "U_I_P"
+      Type          Wire
+      SrcComponent  "Vm1"
+      SrcTerminal   1
+      DstComponent  "Am2"
       DstTerminal   2
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "Am2"
+      SrcTerminal   1
+      Points        [330, 165; 330, 175]
+      DstComponent  "Linear Trafo2"
+      DstTerminal   3
     }
     Connection {
       Type          Signal
       SrcComponent  "Demux"
       SrcTerminal   3
-      Points        [115, 80; 115, 95]
-      DstComponent  "RMS Value"
-      DstTerminal   1
+      Points        [115, 80; 115, 95; 170, 95]
+      DstComponent  "U_I_P"
+      DstTerminal   2
     }
     Annotation {
       Name          base64 "PGh0bWw+PGJvZHk+CjxwPlByaW3DpHJzZWl0ZTwvcD48L2JvZH"
