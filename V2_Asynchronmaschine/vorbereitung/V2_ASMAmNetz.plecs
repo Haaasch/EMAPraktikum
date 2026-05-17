@@ -52,7 +52,7 @@ Plecs {
   AlgebraicLoopMethod "1"
   AlgebraicLoopTolerance "1e-6"
   ScriptsDialogGeometry "[286 191 1200 756]"
-  ScriptsDialogSplitterPos "100"
+  ScriptsDialogSplitterPos "48"
   MixedSignalSolverBypassOperatingPoint "1"
   MixedSignalSolverInitialConditions "2"
   MixedSignalSolverMaxNewtonIterations "25"
@@ -91,9 +91,9 @@ Plecs {
     Index         "5"
   }
   Schematic {
-    Location      [0, 23; 1920, 989]
+    Location      [0, 24; 1920, 990]
     ZoomFactor    1.71498
-    SliderPosition [0, 11]
+    SliderPosition [0, -1]
     ShowBrowser   off
     BrowserWidth  100
     Component {
@@ -1378,22 +1378,22 @@ Plecs {
       Flipped       off
       LabelPosition south
       Frame         [-15, -15; 15, 15]
-      Location      [0, 23; 1920, 1011]
+      Location      [0, 24; 1920, 1021]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAADAA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAGIA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABiAP///wAAAAMAAAeAAAAAYvw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAB4AAAABEAP///wAAB4AAAANVAAAA"
+"///wAAAGIA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABiAP///wAAAAMAAAeAAAAAUfw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAB4AAAABEAP///wAAB4AAAANvAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "{\"DefaultSecSize\":100,\"FirstSecSize\":127,\"Labels\":["
-"\"Delta\"],\"VisualIdxs\":[3]}"
+      HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":127,\"Labels\":[\""
+"Delta\"],\"VisualIdxs\":[3]}"
       PlotPalettes  "AAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
       Axes          "1"
       TimeRange     "0.0"
       ScrollingMode "1"
       SingleTimeAxis "1"
-      Open          "1"
+      Open          "0"
       Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    "Time / s"
@@ -1770,17 +1770,17 @@ Plecs {
 ";\n\n    % --- Daten extrahieren ---\n    i1_vec(k)     = out.Values(1, end);"
 "\n    i2_vec(k)     = out.Values(2, end);\n    torque_vec(k) = out.Values(3, "
 "end);\n    cos_vec(k)    = out.Values(4, end);\n    f_vec(k)      = out.Value"
-"s(5, end);\n    if abs(f_vec(k)) < 1e-2\n    f_vec(k) = 0;\nend\n\n    fprint"
-"f('%.1f | %.2f | %.3f | %.1f | %.2f | %.2f\\n', ...\n        n, i1_vec(k), co"
-"s_vec(k), torque_vec(k), i2_vec(k), f_vec(k));\nend\n\n% --- Ergebnis in .m D"
-"atei speichern ---\nsave('kennlinie_ASMAmNetz.mat', ...\n    'n_list', 'i1_ve"
-"c', 'i2_vec', 'cos_vec', 'torque_vec', 'f_vec');\n\n% --- optional: auch als "
-"MATLAB Script exportieren ---\nfid = fopen('kennlinie_rv_1_5.m', 'w');\n\nfpr"
-"intf(fid, '%% Automatisch generierte Ergebnisse\\n\\n');\nfprintf(fid, 'n_lis"
-"t = %s;\\n', mat2str(n_list));\nfprintf(fid, 'i1_vec = %s;\\n', mat2str(i1_ve"
-"c));\nfprintf(fid, 'i2_vec = %s;\\n', mat2str(i2_vec));\nfprintf(fid, 'cos_ve"
-"c = %s;\\n', mat2str(cos_vec));\nfprintf(fid, 'torque_vec = %s;\\n', mat2str("
-"torque_vec));\nfprintf(fid, 'f_vec = %s;\\n', mat2str(f_vec));\n\nfclose(fid)"
-";\n\ndisp('Fertig: Daten gespeichert in .mat und .m Datei');"
+"s(5, end);\n    if abs(i2_vec(k)) < 10\n    f_vec(k) = -2*n+50;\nend\n\n    f"
+"printf('%.1f | %.2f | %.3f | %.1f | %.2f | %.2f\\n', ...\n        n, i1_vec(k"
+"), cos_vec(k), torque_vec(k), i2_vec(k), f_vec(k));\nend\n\n% --- Ergebnis in"
+" .m Datei speichern ---\nsave('kennlinie_ASMAmNetz.mat', ...\n    'n_list', '"
+"i1_vec', 'i2_vec', 'cos_vec', 'torque_vec', 'f_vec');\n\n% --- optional: auch"
+" als MATLAB Script exportieren ---\nfid = fopen('kennlinie_rv_1_5.m', 'w');\n"
+"\nfprintf(fid, '%% Automatisch generierte Ergebnisse\\n\\n');\nfprintf(fid, '"
+"n_list = %s;\\n', mat2str(n_list));\nfprintf(fid, 'i1_vec = %s;\\n', mat2str("
+"i1_vec));\nfprintf(fid, 'i2_vec = %s;\\n', mat2str(i2_vec));\nfprintf(fid, 'c"
+"os_vec = %s;\\n', mat2str(cos_vec));\nfprintf(fid, 'torque_vec = %s;\\n', mat"
+"2str(torque_vec));\nfprintf(fid, 'f_vec = %s;\\n', mat2str(f_vec));\n\nfclose"
+"(fid);\n\ndisp('Fertig: Daten gespeichert in .mat und .m Datei');"
   }
 }
