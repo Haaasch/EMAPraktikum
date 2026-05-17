@@ -17,7 +17,7 @@ I13 =1
 U1_eff =1
 U2_eff =1
 
-
+%fragen
 ue = U1_eff/ (U2_eff/sqrt(3));
 
 printf("%f \n", ue)

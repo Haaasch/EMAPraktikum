@@ -2,6 +2,7 @@
 
 %realer leerlauf
 
+n_1 =
 U_1 =
 
 I_1 =
@@ -19,6 +20,7 @@ Q13 =
 
 %idealer leerlauf
 
+n_2 =
 U_10 =
 
 I_10 =
@@ -33,3 +35,4 @@ Q120 =
 
 P130 =
 Q130 =
+
