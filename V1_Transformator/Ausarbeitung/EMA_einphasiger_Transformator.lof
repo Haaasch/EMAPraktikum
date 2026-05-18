@@ -1,0 +1,12 @@
+\babel@toc {ngerman}{}\relax 
+\contentsline {figure}{\numberline {1}{\ignorespaces Angepasster Aufbau des PLECS-Modells}}{1}{}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Messaufbau der Leerlaufkennliniensimulation in PLECS}}{3}{}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Effektivwert des Leerlaufstroms $I_{1, eff}$ über Effektivwert der Primärspannung $U_{1, eff}$}}{4}{}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Effektivwert der Sekundärspannung $U_{2}$ über Effektivwert der Primärspannung $U_{1}$}}{6}{}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Leistungsfaktor $cos(\varphi )$ über Leerlaufspannung}}{7}{}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Messaufbau der Kurzschlusssimulation in PLECS}}{8}{}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Ersatzschaltbild des Transformators im Kurzschlussfall}}{8}{}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Effektivwert des Kurzschlussstroms $I_{1k}$ über Effektivwert der Primärspannung $U_{1k}$}}{10}{}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Effektivwert des Kurzschlussstroms $I_{2k}$ über Effektivwert der Primärspannung $U_{1k}$}}{11}{}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Leistungsfaktor $cos \varphi _k$ im Kurzschluss über Effektivwert der Primärspannung $U_{1k}$}}{12}{}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Einschaltstrom I1 bei verschiedenen Phasenlagen von U}}{14}{}%
