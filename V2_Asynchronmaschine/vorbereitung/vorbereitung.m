@@ -86,8 +86,8 @@ plot(i1i_1, i1r_1,  's-');
 grid on;
 axis equal;
 
-xlabel('I_{1r} [A]');
-ylabel('I_{1i} [A]');
+xlabel('I_{1i} [A]');
+ylabel('I_{1r} [A]');
 title('Stromortskurve');
 
 legend('rv=0','rv=1.5');

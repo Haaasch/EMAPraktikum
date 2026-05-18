@@ -4,7 +4,7 @@
 % Kurzschluss zwischen 2U2 und 3U1, spezielle Leitungen verwenden
 % Muss wegen Temperaturentwicklung schnell druchgeführt werden!
 % Setze Spannungsquelle auf Ugrenz = 50V
-
+clc;
 % 31A ist I_N!
 IkN27 = 31/ sqrt(3);
 
@@ -22,5 +22,25 @@ Qk27 = [10.4 23.0 36.8 54.8 77.6 102 128];
 Sk27 = []; % wenn das auch gleich abzulesen ist, sonst:
 %Sk27 = U1eff27 .* I1keff;
 %cosPHIk27 = Pk27 ./ Sk27; % oder Pk27 ./ (sqrt(pow(Pk27) + pow(Qk27))
-U2keffMAX = %ABLESEN bei I_1 = I_N
+%U2keffMAX = %ABLESEN bei I_1 = I_N
+figure;
+plot(U1keff27, I1keff27, 'o-g');
+grid on;
+xlabel("U1k");
+ylabel("I1k");
+
+figure;
+plot(U1keff27, Pk27, 'o-b');
+grid on;
+xlabel("U1k");
+ylabel("Pk");
+
+figure;
+plot(U1keff27, cosPHIk27, 'o-r');
+grid on;
+xlabel("U1k");
+ylabel("cosphi");
+
+
+
 
