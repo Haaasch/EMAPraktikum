@@ -52,8 +52,8 @@ Plecs {
   ExternalModeSettings ""
   AlgebraicLoopMethod "1"
   AlgebraicLoopTolerance "1e-6"
-  ScriptsDialogGeometry "[274 121 1086 678]"
-  ScriptsDialogSplitterPos "100"
+  ScriptsDialogGeometry "[423 636 1086 678]"
+  ScriptsDialogSplitterPos "70"
   MixedSignalSolverBypassOperatingPoint "1"
   MixedSignalSolverInitialConditions "2"
   MixedSignalSolverMaxNewtonIterations "25"
@@ -100,7 +100,7 @@ Plecs {
     Index         "7"
   }
   Schematic {
-    Location      [0, 23; 1536, 869]
+    Location      [0, 24; 1536, 870]
     ZoomFactor    1.30957
     SliderPosition [0, 0]
     ShowBrowser   off
@@ -248,11 +248,11 @@ Plecs {
       Flipped       off
       LabelPosition south
       Frame         [-15, -15; 15, 15]
-      Location      [46, 248; 733, 933]
+      Location      [46, 248; 733, 969]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAAFgA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGIA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABiAP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABEAP///wAAAq8AAAKOAAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABEAP///wAAAq8AAAKyAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
@@ -1510,15 +1510,15 @@ Plecs {
       Flipped       off
       LabelPosition south
       Frame         [-15, -15; 15, 15]
-      Location      [769, 30; 1535, 443]
+      Location      [82, 306; 848, 809]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAADAA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGIA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABiAP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABEAP///wAAAv4AAAF+AAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABEAP///wAAAv4AAAHYAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":118,\"Labels\":[],"
+      HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":121,\"Labels\":[],"
 "\"VisualIdxs\":[]}"
       PlotPalettes  "AAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
       Axes          "1"
@@ -1595,7 +1595,7 @@ Plecs {
       }
       Parameter {
         Variable      "Vpk"
-        Value         "1"
+        Value         "10"
         Show          off
       }
       Parameter {
@@ -1658,16 +1658,16 @@ Plecs {
       Flipped       off
       LabelPosition south
       Frame         [-15, -15; 15, 15]
-      Location      [769, 486; 1535, 890]
+      Location      [381, 834; 1147, 1319]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAADAA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGIA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABiAP///wAAAAMAAAL+AAAAYvw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAAv4AAABEAP///wAAAv4AAAENAAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAAv4AAABEAP///wAAAv4AAAFeAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "{\"DefaultSecSize\":100,\"FirstSecSize\":177,\"Labels\":["
-"\"Delta\"],\"VisualIdxs\":[3]}"
+      HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":177,\"Labels\":[\""
+"Delta\"],\"VisualIdxs\":[3]}"
       PlotPalettes  "AAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
       Axes          "1"
       TimeRange     "0.0"
@@ -1752,11 +1752,11 @@ Plecs {
       Flipped       off
       LabelPosition south
       Frame         [-15, -15; 15, 15]
-      Location      [769, 486; 1535, 890]
+      Location      [29, 534; 795, 965]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAADAA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGIA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABiAP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABEAP///wAAAv4AAAF1AAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABEAP///wAAAv4AAAGQAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
@@ -1767,7 +1767,7 @@ Plecs {
       TimeRange     "0.0"
       ScrollingMode "1"
       SingleTimeAxis "1"
-      Open          "0"
+      Open          "1"
       Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    "Time / s"
@@ -1936,16 +1936,16 @@ Plecs {
       Flipped       off
       LabelPosition south
       Frame         [-15, -15; 15, 15]
-      Location      [769, 30; 1535, 434]
+      Location      [693, 221; 1459, 661]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAADAA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGIA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABiAP///wAAAAMAAAL+AAAAYvw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAAv4AAABEAP///wAAAv4AAAENAAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAAv4AAABEAP///wAAAv4AAAExAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "{\"DefaultSecSize\":100,\"FirstSecSize\":118,\"Labels\":["
-"\"Delta\"],\"VisualIdxs\":[3]}"
+      HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":118,\"Labels\":[\""
+"Delta\"],\"VisualIdxs\":[3]}"
       PlotPalettes  "AAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
       Axes          "1"
       TimeRange     "0.0"
@@ -2023,6 +2023,122 @@ Plecs {
         Show          off
       }
     }
+    Component {
+      Type          Scope
+      Name          "Scope6"
+      Show          on
+      Position      [890, 215]
+      Direction     up
+      Flipped       off
+      LabelPosition south
+      Frame         [-15, -15; 15, 15]
+      Location      [0, 24; 1920, 1021]
+      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
+"G0AQQByAGUAYQAAAAAA/////wAAADAA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAGIA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABiAP///wAAAAMAAAeAAAAAhPw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAB4AAAABEAP///wAAB4AAAAM8AAAA"
+"BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
+"AAAAA=="
+      SavedViews    "AAAAAgAAAAA="
+      HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":121,\"Labels\":[\""
+"Delta\"],\"VisualIdxs\":[3]}"
+      PlotPalettes  "AAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+      Axes          "1"
+      TimeRange     "0.0"
+      ScrollingMode "1"
+      SingleTimeAxis "1"
+      Open          "0"
+      Ts            "-1"
+      SampleLimit   "0"
+      XAxisLabel    "Time / s"
+      ShowLegend    "1"
+      Axis {
+        Name          ""
+        AutoScale     1
+        MinValue      0
+        MaxValue      1
+        Signals       {}
+        SignalTypes   [ ]
+        Untangle      0
+        KeepBaseline  off
+        BaselineValue 0
+      }
+      Fourier {
+        SingleXAxis       on
+        AxisLabel         "Frequency / Hz"
+        Scaling           0
+        PhaseDisplay      0
+        ShowFourierLegend off
+        Axis {
+          Name          ""
+          AutoScale     1
+          MinValue      0
+          MaxValue      1
+          Signals       {}
+          Untangle      0
+          KeepBaseline  off
+          BaselineValue 0
+        }
+      }
+    }
+    Component {
+      Type          Scope
+      Name          "Scope7"
+      Show          on
+      Position      [530, 235]
+      Direction     up
+      Flipped       off
+      LabelPosition south
+      Frame         [-15, -15; 15, 15]
+      Location      [0, 24; 1920, 1021]
+      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
+"G0AQQByAGUAYQAAAAAA/////wAAADAA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAGIA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABiAP///wAAAAMAAAeAAAAAYvw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAB4AAAABEAP///wAAB4AAAANeAAAA"
+"BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
+"AAAAA=="
+      SavedViews    "AAAAAgAAAAA="
+      HeaderState   "{\"DefaultSecSize\":100,\"FirstSecSize\":121,\"Labels\":["
+"\"Delta\"],\"VisualIdxs\":[3]}"
+      PlotPalettes  "AAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+      Axes          "1"
+      TimeRange     "0.0"
+      ScrollingMode "1"
+      SingleTimeAxis "1"
+      Open          "0"
+      Ts            "-1"
+      SampleLimit   "0"
+      XAxisLabel    "Time / s"
+      ShowLegend    "1"
+      Axis {
+        Name          ""
+        AutoScale     1
+        MinValue      0
+        MaxValue      1
+        Signals       {}
+        SignalTypes   [ ]
+        Untangle      0
+        KeepBaseline  off
+        BaselineValue 0
+      }
+      Fourier {
+        SingleXAxis       on
+        AxisLabel         "Frequency / Hz"
+        Scaling           0
+        PhaseDisplay      0
+        ShowFourierLegend off
+        Axis {
+          Name          ""
+          AutoScale     1
+          MinValue      0
+          MaxValue      1
+          Signals       {}
+          Untangle      0
+          KeepBaseline  off
+          BaselineValue 0
+        }
+      }
+    }
     Connection {
       Type          Rotational
       SrcComponent  "Rotational\nFrame"
@@ -2090,13 +2206,6 @@ Plecs {
       SrcComponent  "Solldrehzahl"
       SrcTerminal   1
       DstComponent  "Steuerung"
-      DstTerminal   2
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Lastmoment"
-      SrcTerminal   1
-      DstComponent  "Torque"
       DstTerminal   2
     }
     Connection {
@@ -2195,14 +2304,6 @@ Plecs {
     }
     Connection {
       Type          Signal
-      SrcComponent  "Vm1"
-      SrcTerminal   3
-      Points        [575, 200]
-      DstComponent  "U_uu"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Signal
       SrcComponent  "2"
       SrcTerminal   3
       Points        [625, 320]
@@ -2251,14 +2352,6 @@ Plecs {
       SrcTerminal   4
       Points        [730, 385]
       DstComponent  "Am2"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "3ph Meter"
-      SrcTerminal   8
-      Points        [710, 285]
-      DstComponent  "Three-Phase PLL"
       DstTerminal   1
     }
     Connection {
@@ -2313,14 +2406,6 @@ Plecs {
     }
     Connection {
       Type          Signal
-      SrcComponent  "3ph Meter1"
-      SrcTerminal   8
-      Points        [430, 135]
-      DstComponent  "Three-Phase PLL1"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Signal
       SrcComponent  "Am1"
       SrcTerminal   3
       Points        [610, 235; 640, 235]
@@ -2362,41 +2447,111 @@ Plecs {
         DstTerminal   1
       }
     }
+    Connection {
+      Type          Signal
+      SrcComponent  "3ph Meter1"
+      SrcTerminal   8
+      Points        [430, 135]
+      DstComponent  "Three-Phase PLL1"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Vm1"
+      SrcTerminal   3
+      Points        [575, 200]
+      Branch {
+        DstComponent  "U_uu"
+        DstTerminal   1
+      }
+      Branch {
+        Points        [500, 200]
+        DstComponent  "Scope7"
+        DstTerminal   1
+      }
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Lastmoment"
+      SrcTerminal   1
+      DstComponent  "Torque"
+      DstTerminal   2
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "3ph Meter"
+      SrcTerminal   8
+      Points        [710, 250; 845, 250]
+      Branch {
+        Points        [845, 285]
+        DstComponent  "Three-Phase PLL"
+        DstTerminal   1
+      }
+      Branch {
+        Points        [845, 215]
+        DstComponent  "Scope6"
+        DstTerminal   1
+      }
+    }
   }
   Script {
     Name          "Letsgooo"
-    Script        base64 "TGFzdG1vbWVudCA9IDMwOwpTb2xsZHJlaHphaGwgPSAxNTAwLzYw"
-"Owp0X3ZhbCA9IDEwMDAwCgoKICAgIHZhcnMgPSBzdHJ1Y3QoIC4uLgogICAgCQknTGFzdG1vbWVud"
-"CcsIExhc3Rtb21lbnQsIC4uLgogICAgICAgICdTb2xsZHJlaHphaGwnLCBTb2xsZHJlaHphaGwsIC"
-"4uLgogICAgICAgICd0X3NwYW4nLCB0X3ZhbCk7CgogICAgb3B0cyA9IHN0cnVjdCgnTW9kZWxWYXJ"
-"zJywgdmFycyk7CgolIEFuemFobCBaZWl0c2Nocml0dGUgYXVzIGVyc3RlciBTaW11bGF0aW9uIGJl"
-"c3RpbW1lbgpvdXQgPSBwbGVjcygnc2ltdWxhdGUnLG9wdHMpOwpudW1TYW1wbGVzID0gbGVuZ3RoK"
-"G91dC5UaW1lKTsKCiUgLS0tIFByZWFsbG9jYXRpb24gLS0tCmkxX3ZlYyAgICAgID0gemVyb3MoMS"
-"xudW1TYW1wbGVzKTsKaTJfdmVjICAgICAgPSB6ZXJvcygxLG51bVNhbXBsZXMpOwp1X3V1X3ZlYyA"
-"gICA9IHplcm9zKDEsbnVtU2FtcGxlcyk7CnVfdXZfdmVjICAgID0gemVyb3MoMSxudW1TYW1wbGVz"
-"KTsKbV92ZWMgICAgICAgPSB6ZXJvcygxLG51bVNhbXBsZXMpOwpmXzFfdmVjICAgICA9IHplcm9zK"
-"DEsbnVtU2FtcGxlcyk7CmZfMl92ZWMgICAgID0gemVyb3MoMSxudW1TYW1wbGVzKTsKCnRfdmVjIC"
-"AgICAgID0gb3V0LlRpbWU7CiAgICAlIC0tLSBEYXRlbiBleHRyYWhpZXJlbiAtLS0KCiUgQmVpc3B"
-"pZWw6IGxldHp0ZSAyMCAlIGRlciBTaW11bGF0aW9uCnN0YXJ0X2lkeCA9IHJvdW5kKGxlbmd0aChv"
-"dXQuVGltZSkqMC44KTsKCmkxX3ZlYyAgICAgID0gb3V0LlZhbHVlcygxLHN0YXJ0X2lkeDplbmQpO"
-"wppMl92ZWMgICAgICA9IG91dC5WYWx1ZXMoMixzdGFydF9pZHg6ZW5kKTsKCnVfdXVfdmVjICAgID"
-"0gb3V0LlZhbHVlcygzLHN0YXJ0X2lkeDplbmQpOwp1X3V2X3ZlYyAgICA9IG91dC5WYWx1ZXMoNCx"
-"zdGFydF9pZHg6ZW5kKTsKCm1fdmVjICAgICAgPSBvdXQuVmFsdWVzKDUsc3RhcnRfaWR4OmVuZCk7"
-"CmZfMV92ZWMgICAgPSBvdXQuVmFsdWVzKDYsc3RhcnRfaWR4OmVuZCk7CmZfMl92ZWMgICAgID0gb"
-"3V0LlZhbHVlcyg3LHN0YXJ0X2lkeDplbmQpOwoKICAgCgoKJSAtLS0gRXJnZWJuaXMgaW4gLm1hdC"
-"BEYXRlaSBzcGVpY2hlcm4gLS0tCgpzYXZlKCdrZW5ubGluaWVfQVNNQW1OZXR6Lm1hdCcsIC4uLgo"
-"nbl9saXN0JywgLi4uCidpMV92ZWMnLCAuLi4KJ2kyX3ZlYycsIC4uLgondV91dV92ZWMnLCAuLi4K"
-"J3VfdXZfdmVjJywgLi4uCidtX3ZlYycsIC4uLgonZl8xX3ZlYycsIC4uLgonZl8yX3ZlYycsIC4uL"
-"gonY29zX3ZlYycsIC4uLgondG9ycXVlX3ZlYycsIC4uLgonZl92ZWMnKTsKCiUgLS0tIFp1c8OkdH"
-"psaWNoIGFscyBNQVRMQUIgU2NyaXB0IGV4cG9ydGllcmVuIC0tLQoKZmlkID0gZm9wZW4oJ2tlbm5"
-"saW5pZV9ydl8xXzUubScsJ3cnKTsKCmZwcmludGYoZmlkLCclJSBBdXRvbWF0aXNjaCBnZW5lcmll"
-"cnRlIEVyZ2Vibmlzc2VcblxuJyk7CgpmcHJpbnRmKGZpZCwnaTFfdmVjID0gJXM7XG4nLG1hdDJzd"
-"HIoaTFfdmVjKSk7CmZwcmludGYoZmlkLCdpMl92ZWMgPSAlcztcbicsbWF0MnN0cihpMl92ZWMpKT"
-"sKCmZwcmludGYoZmlkLCd1X3V1X3ZlYyA9ICVzO1xuJyxtYXQyc3RyKHVfdXVfdmVjKSk7CmZwcml"
-"udGYoZmlkLCd1X3V2X3ZlYyA9ICVzO1xuJyxtYXQyc3RyKHVfdXZfdmVjKSk7CgpmcHJpbnRmKGZp"
-"ZCwnbV92ZWMgPSAlcztcbicsbWF0MnN0cihtX3ZlYykpOwoKZnByaW50ZihmaWQsJ2ZfMV92ZWMgP"
-"SAlcztcbicsbWF0MnN0cihmXzFfdmVjKSk7CmZwcmludGYoZmlkLCdmXzJfdmVjID0gJXM7XG4nLG"
-"1hdDJzdHIoZl8yX3ZlYykpOwoKZmNsb3NlKGZpZCk7CgpkaXNwKCdGZXJ0aWc6IERhdGVuIGdlc3B"
-"laWNoZXJ0IGluIC5tYXQgdW5kIC5tIERhdGVpJyk7"
+    Script        "Lastmoment = 20;\nSolldrehzahl = 1500/60;\nt_val = 10000\n"
+"\n\n    vars = struct( ...\n    \t\t'Lastmoment', Lastmoment, ...\n        'S"
+"olldrehzahl', Solldrehzahl, ...\n        't_span', t_val);\n\n    opts = stru"
+"ct('ModelVars', vars);\n\n% Anzahl Zeitschritte aus erster Simulation bestimm"
+"en\nout = plecs('simulate',opts);\nnumSamples = length(out.Time);\n\n% --- Pr"
+"eallocation ---\ni1_vec      = zeros(1,numSamples);\ni2_vec      = zeros(1,nu"
+"mSamples);\nu_uu_vec    = zeros(1,numSamples);\nu_uv_vec    = zeros(1,numSamp"
+"les);\nm_vec       = zeros(1,numSamples);\nf_1_vec     = zeros(1,numSamples);"
+"\nf_2_vec     = zeros(1,numSamples);\n\nt_vec       = out.Time;\n    % --- Da"
+"ten extrahieren ---\n\n% Beispiel: letzte 20 % der Simulation\nstart_idx = ro"
+"und(length(out.Time)*0.8);\n\ni1_vec      = out.Values(1,start_idx:end);\ni2_"
+"vec      = out.Values(2,start_idx:end);\n\nu_uu_vec    = out.Values(3,start_i"
+"dx:end);\nu_uv_vec    = out.Values(4,start_idx:end);\n\nm_vec      = out.Valu"
+"es(5,start_idx:end);\nf_1_vec    = out.Values(6,start_idx:end);\nf_2_vec     "
+"= out.Values(7,start_idx:end);\n\n   \n\n\n% --- Ergebnis in .mat Datei speic"
+"hern ---\n\nsave('kennlinie_ASMAmFrequenzumrichter.m', ...\n'i1_vec', ...\n'i"
+"2_vec', ...\n'u_uu_vec', ...\n'u_uv_vec', ...\n'm_vec', ...\n'f_1_vec', ...\n"
+"'f_2_vec', ...\n't_vec');\n\n\n\ndisp('Fertig: Daten gespeichert in .mat und "
+".m Datei');"
+  }
+  Script {
+    Name          "skripti"
+    Script        base64 "JSUgLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQolJSBQYXJhbWV0"
+"ZXIKJSUgLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQpMYXN0bW9tZW50ZSA9IFstMSAtMC41IDAgM"
+"C41IDFdOwoKbl9yZWYgPSAxNTAwLzYwOwpuX3ZlYyA9IFtuX3JlZiwgMC41Km5fcmVmXTsKCnRfdm"
+"FsID0gMTAwMDA7CgolJSAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCiUlIFNwZWljaGVyc3RydWt"
+"0dXIgdm9yYmVyZWl0ZW4KJSUgLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQpkYXRhX3JlZiA9IHN0"
+"cnVjdCgpOwpkYXRhX2hhbGYgPSBzdHJ1Y3QoKTsKCiUlID09PT09PT09PT09PT09PT09PT09PT09P"
+"T09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PQolJSBMT09QIMO8YmVyIERyZWh6YWhsZW"
+"4KJSUgPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0"
+"9PT09CmZvciBuX2lkeCA9IDE6bGVuZ3RoKG5fdmVjKQoKICAgIFNvbGxkcmVoemFobCA9IG5fdmVj"
+"KG5faWR4KTsKCiAgICByZXN1bHRzID0gc3RydWN0KCk7CgogICAgJSUgTE9PUCDDvGJlciBMYXN0b"
+"W9tZW50ZQogICAgZm9yIGsgPSAxOmxlbmd0aChMYXN0bW9tZW50ZSkKCiAgICAgICAgTGFzdG1vbW"
+"VudCA9IExhc3Rtb21lbnRlKGspOwoKICAgICAgICAlJSBTaW11bGF0aW9uIHNldHVwCiAgICAgICA"
+"gdmFycyA9IHN0cnVjdCggLi4uCiAgICAgICAgICAgICdMYXN0bW9tZW50JywgTGFzdG1vbWVudCwg"
+"Li4uCiAgICAgICAgICAgICdTb2xsZHJlaHphaGwnLCBTb2xsZHJlaHphaGwsIC4uLgogICAgICAgI"
+"CAgICAndF9zcGFuJywgdF92YWwpOwoKICAgICAgICBvcHRzID0gc3RydWN0KCdNb2RlbFZhcnMnLC"
+"B2YXJzKTsKCiAgICAgICAgJSUgU2ltdWxhdGlvbgogICAgICAgIG91dCA9IHBsZWNzKCdzaW11bGF"
+"0ZScsIG9wdHMpOwoKICAgICAgICAlJSBJbmRleGJlcmVpY2ggKGxldHp0ZSAyMCUpCiAgICAgICAg"
+"c3RhcnRfaWR4ID0gcm91bmQobGVuZ3RoKG91dC5UaW1lKSowLjgpOwoKICAgICAgICAlJSBEYXRlb"
+"iBleHRyYWhpZXJlbgogICAgICAgIHNpbSA9IHN0cnVjdCgpOwoKICAgICAgICBzaW0udCAgID0gb3"
+"V0LlRpbWUoc3RhcnRfaWR4OmVuZCk7CgogICAgICAgIHNpbS5pMSAgPSBvdXQuVmFsdWVzKDEsc3R"
+"hcnRfaWR4OmVuZCk7CiAgICAgICAgc2ltLmkyICA9IG91dC5WYWx1ZXMoMixzdGFydF9pZHg6ZW5k"
+"KTsKCiAgICAgICAgc2ltLnVfdXUgPSBvdXQuVmFsdWVzKDMsc3RhcnRfaWR4OmVuZCk7CiAgICAgI"
+"CAgc2ltLnVfdXYgPSBvdXQuVmFsdWVzKDQsc3RhcnRfaWR4OmVuZCk7CgogICAgICAgIHNpbS5NIC"
+"AgPSBvdXQuVmFsdWVzKDUsc3RhcnRfaWR4OmVuZCk7CiAgICAgICAgc2ltLmYxICA9IG91dC5WYWx"
+"1ZXMoNixzdGFydF9pZHg6ZW5kKTsKICAgICAgICBzaW0uZjIgID0gb3V0LlZhbHVlcyg3LHN0YXJ0"
+"X2lkeDplbmQpOwoKICAgICAgICAlJSBzcGVpY2hlcm4gcHJvIExhc3RwdW5rdAogICAgICAgIHJlc"
+"3VsdHMoaykuTGFzdG1vbWVudCA9IExhc3Rtb21lbnQ7CiAgICAgICAgcmVzdWx0cyhrKS5kYXRhID"
+"0gc2ltOwoKICAgIGVuZAoKICAgICUlIGluIHBhc3NlbmRlIFN0cnVrdHVyIHNjaHJlaWJlbgogICA"
+"gaWYgbl9pZHggPT0gMQogICAgICAgIGRhdGFfcmVmLnJlc3VsdHMgPSByZXN1bHRzOwogICAgICAg"
+"IGRhdGFfcmVmLm4gPSBTb2xsZHJlaHphaGw7CiAgICBlbHNlCiAgICAgICAgZGF0YV9oYWxmLnJlc"
+"3VsdHMgPSByZXN1bHRzOwogICAgICAgIGRhdGFfaGFsZi5uID0gU29sbGRyZWh6YWhsOwogICAgZW"
+"5kCgplbmQKCiUlIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KJSUgU3BlaWNoZXJuCiUlIC0tLS0"
+"tLS0tLS0tLS0tLS0tLS0tLS0tLS0Kc2F2ZSgna2VubmxpbmllX25yZWYubScsICdkYXRhX3JlZicp"
+"OwpzYXZlKCdrZW5ubGluaWVfbjBfNXJlZi5tJywgJ2RhdGFfaGFsZicpOwoKZGlzcCgnRmVydGlnO"
+"iBLZW5ubGluaWVuIGdlc3BlaWNoZXJ0IChuX3JlZiArIDAuNSBuX3JlZiknKTs="
   }
 }
